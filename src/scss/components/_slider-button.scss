@@ -1,0 +1,16 @@
+.slider-button {
+	width: 45px;
+	height: 32px;
+
+	background: url('../../images/slider-button.svg') calc(50% + 2px) no-repeat;
+	border: 1px solid #fff;
+	border-radius: 20px;
+
+	&:disabled {
+		opacity: 0.2;
+	}
+
+	&--left {
+		transform: rotate(180deg);
+	}
+}

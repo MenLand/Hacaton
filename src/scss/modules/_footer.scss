@@ -1,0 +1,74 @@
+.footer {
+	position: relative;
+	z-index: 2;
+
+	// .footer__line
+	&__line {
+		display: flex;
+		justify-content: space-between;
+
+		margin-bottom: 50px;
+		padding-top: 47px;
+		padding-left: 7px;
+
+		background: url('../../images/footer/footer-line.svg') no-repeat top;
+	}
+
+	// .footer__line-text
+	&__line-text {
+		font-family: $secondary-font;
+		font-size: rem(20);
+		font-weight: 500;
+		font-style: normal;
+		line-height: 140%;
+		text-transform: uppercase;
+	}
+
+	// .footer__title
+	&__title {
+		height: 193px;
+		margin-bottom: 44px;
+
+		background: url('../../images/footer/CITYHACK.svg');
+	}
+
+	// .footer__bottom
+	&__bottom {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	// .footer__text
+	&__text {
+		font-family: $secondary-font;
+		font-size: rem(16);
+		font-weight: 500;
+		font-style: normal;
+		line-height: 140%;
+	}
+
+	// .footer__text-underline
+	&__text-underline {
+		text-decoration-line: underline;
+	}
+}
+
+.footer-image {
+	position: relative;
+
+	padding-bottom: 35px;
+
+	&::before {
+		content: '';
+
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+
+		width: 110%;
+		height: 100%;
+
+		background: url('../../images/footer.png') center 100% / contain
+			no-repeat;
+	}
+}

@@ -1,0 +1,154 @@
+%field-control {
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+
+	font-family: $secondary-font;
+	font-size: rem(15);
+	font-weight: 500;
+	font-style: normal;
+	line-height: 140%;
+	color: #fff;
+}
+
+%field-input {
+	height: rem(62);
+	padding: 20px;
+
+	color: #fff;
+
+	background: rgb(255 255 255 / 10%);
+	backdrop-filter: blur(25px);
+
+	/* White */
+
+	border: 1px solid #fff;
+}
+
+.select-field {
+	$this: &;
+	@extend %field-control;
+
+	// .select-field__label
+	&__label {
+		cursor: pointer;
+	}
+
+	// .select-field__input
+	&__input {
+		@extend %field-input;
+	}
+
+	&--attach {
+		position: relative;
+
+		#{$this}__input {
+			&::after {
+				cursor: pointer;
+				content: '';
+
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				width: 55px;
+				height: 100%;
+
+				background-image: url('../../images/form/bottom-arrow.svg');
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		}
+	}
+}
+
+.input-field {
+	@extend %field-control;
+
+	// .input-field__label
+	&__label {
+		cursor: pointer;
+
+		&--tip {
+			&::after {
+				content: '';
+
+				display: inline-block;
+
+				width: 20px;
+				height: 20px;
+
+				vertical-align: top;
+
+				background-image: url('../../images/form/question.svg');
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		}
+	}
+
+	// .input-field__input
+	&__input {
+		@extend %field-input;
+	}
+}
+
+.attach-field {
+	$this: &;
+	@extend %field-control;
+
+	// .attach-field__label
+	&__label {
+		cursor: pointer;
+	}
+
+	// .attach-field__input
+	&__input {
+		@extend %field-input;
+	}
+
+	&--attach {
+		position: relative;
+
+		.attach-field__input {
+			&::after {
+				cursor: pointer;
+				content: '';
+
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				width: 55px;
+				height: 100%;
+
+				background-image: url('../../images/form/attach.svg');
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		}
+	}
+}
+
+.form-button {
+	padding: 20px 0;
+
+	font-size: rem(15);
+	font-weight: 500;
+	font-style: normal;
+	line-height: 140%;
+	color: #fff;
+
+	background: rgb(255 255 255 / 10%);
+	backdrop-filter: blur(25px);
+
+	/* White */
+
+	border: 1px solid #fff;
+
+	&--emphasized {
+		color: #01061b;
+
+		background: #fff;
+	}
+}

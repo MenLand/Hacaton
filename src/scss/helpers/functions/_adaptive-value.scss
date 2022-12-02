@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+
+@function adaptive-value($start-size, $min-size, $max, $min) {
+	$add-size: $start-size - $min-size;
+	$min-size: rem($min-size * 1px);
+	$max-without-px: math.div($max, 1px);
+	$min-without-px: math.div($min, 1px);
+
+	/* prettier-ignore */
+	@return calc(#{$min-size} + #{$add-size} * ((100vw - #{rem($min)}) / (#{$max-without-px} - #{$min-without-px}))
+	);
+}

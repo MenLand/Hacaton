@@ -1,0 +1,178 @@
+%border-card-circles {
+	$border-width: 1px;
+	position: relative;
+	left: 21px;
+
+	width: 11px;
+	height: 11px;
+
+	// margin-left: 21px;
+
+	border: $border-width solid #fff;
+	border-radius: 50%;
+
+	&::after,
+	&::before {
+		content: '';
+
+		position: absolute;
+		top: -$border-width;
+
+		width: 11px;
+		height: 11px;
+
+		border: $border-width solid #fff;
+		border-radius: 50%;
+	}
+
+	&::after {
+		left: calc(100% + 10px);
+	}
+
+	&::before {
+		right: calc(100% + 10px);
+	}
+}
+
+%border-card-content {
+	margin: 0;
+	padding: 30px;
+
+	border-style: solid;
+	border-width: 1px;
+	border-top: none;
+}
+
+%border-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	height: 30px;
+	padding: 0 13px;
+
+	border: 1px solid #fff;
+}
+
+%border-card-label {
+	font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+	font-size: rem(14);
+	font-weight: 500;
+	line-height: 145%;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+%border-card-header-cross-lines {
+	position: relative;
+
+	overflow: hidden;
+
+	width: 44px;
+	height: 100%;
+
+	border-right: 1px solid #fff;
+
+	&::after {
+		content: '';
+
+		position: absolute;
+		top: 0;
+		left: 100%;
+		transform: rotate(135deg);
+		transform-origin: left;
+
+		width: 160%;
+		height: 1px;
+
+		background-color: #fff;
+	}
+
+	span {
+		position: absolute;
+		top: -2px;
+		left: -2px;
+		transform: rotate(45deg);
+		transform-origin: left;
+
+		width: 160%;
+		height: 1px;
+
+		background-color: #fff;
+	}
+}
+
+@mixin border-card-header-image($url) {
+	width: 31px;
+	height: 31px;
+	margin-left: auto;
+
+	background: url($url) center no-repeat;
+}
+
+.border-card {
+	&__circle {
+		$border-width: 1px;
+		position: relative;
+		left: 21px;
+
+		width: 11px;
+		height: 11px;
+
+		// margin-left: 21px;
+
+		border: $border-width solid #fff;
+		border-radius: 50%;
+
+		&::after,
+		&::before {
+			content: '';
+
+			position: absolute;
+			top: -$border-width;
+
+			width: 11px;
+			height: 11px;
+
+			border: $border-width solid #fff;
+			border-radius: 50%;
+		}
+
+		&::after {
+			left: calc(100% + 10px);
+		}
+
+		&::before {
+			right: calc(100% + 10px);
+		}
+	}
+
+	&__content {
+		margin: 0;
+		padding: 30px;
+
+		border-style: solid;
+		border-width: 1px;
+		border-top: none;
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		height: 30px;
+		padding: 0 13px;
+
+		border: 1px solid #fff;
+	}
+
+	&__label {
+		font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+		font-size: rem(14);
+		font-weight: 500;
+		line-height: 145%;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+}

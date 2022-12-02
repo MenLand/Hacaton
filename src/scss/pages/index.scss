@@ -1,0 +1,95 @@
+@import '../helpers/mixins/breakpoints';
+@import '../helpers/mixins/adaptive-value';
+
+.blur__block {
+	position: absolute;
+	top: -291px;
+	left: -136px;
+	transform: rotate(22.44deg);
+
+	width: 320px;
+	height: 370px;
+
+	/* Дополнительный 500 */
+
+	background: #3d2abf;
+	filter: blur(150px);
+}
+
+.underline-text {
+	position: relative;
+
+	display: inline-block;
+
+	&::after {
+		content: '';
+
+		position: absolute;
+		top: 100%;
+		left: 0;
+
+		width: 100%;
+		height: 100%;
+
+		background: url('../../images/underline.svg') 0 5px / 100% auto
+			no-repeat;
+	}
+}
+
+.html__header {
+	@include media-down(xl) {
+		margin-bottom: 38px;
+	}
+
+	@include media-down(md) {
+		margin-bottom: 15px;
+	}
+
+	margin-bottom: 35px;
+}
+
+.html__main {
+	margin-bottom: 60px;
+}
+
+.html__reason {
+	@include media-down(xl) {
+		margin-bottom: 100px !important;
+	}
+	@include media-down(md) {
+		margin-bottom: 75px !important;
+	}
+	margin-bottom: 160px !important;
+}
+
+.html__running-line {
+	margin-bottom: 60px;
+}
+
+.html__tasks {
+	margin-bottom: 160px !important;
+}
+
+.html__timeline {
+	margin-bottom: 152px !important;
+}
+
+.html__jury {
+	margin-bottom: 50px !important;
+}
+
+.html__form-section {
+	margin-bottom: 160px !important;
+}
+
+.html__questions {
+	margin-bottom: 176px !important;
+}
+
+.html__partners {
+	margin-bottom: 50px !important;
+}
+
+button {
+	cursor: pointer;
+}

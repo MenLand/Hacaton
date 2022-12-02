@@ -1,0 +1,432 @@
+.team {
+	&__container {
+		@include media-down(xl) {
+			transform: scale(var(--zoom-factor, 1));
+			transform-origin: center top;
+
+			width: 768px;
+		}
+
+		@include media-down(md) {
+			width: 320px;
+		}
+	}
+
+	&__title {
+		@include media-down(xl) {
+			margin-bottom: 40px;
+		}
+		margin-bottom: 60px;
+	}
+
+	&__card {
+	}
+
+	&__card-item {
+	}
+
+	&__card-list {
+	}
+
+	&__card-text {
+	}
+
+	&__image-block {
+	}
+
+	&__row {
+		@include media-down(xl) {
+			flex-direction: column;
+			gap: 30px;
+
+			margin-bottom: 0;
+		}
+		@include media-down(md) {
+			gap: 20px;
+		}
+
+		z-index: 1;
+
+		display: flex;
+		gap: 31px;
+
+		margin-bottom: 40px;
+	}
+
+	&__wrapper {
+		@include media-down(xl) {
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+		}
+
+		@include media-down(md) {
+			gap: 20px;
+		}
+	}
+}
+
+.team-action-card {
+	@include media-down(xl) {
+		margin-left: 0;
+	}
+	display: inline-block;
+
+	margin-left: 206px;
+
+	font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+	font-size: rem(17);
+	font-weight: 500;
+	line-height: 140%;
+	text-align: center;
+	text-transform: uppercase;
+
+	background: rgb(255 255 255 / 10%);
+	backdrop-filter: blur(25px);
+
+	&__button-left {
+		padding: 1em 0;
+
+		color: inherit;
+
+		background-color: unset;
+		border: unset;
+	}
+
+	&__button-right {
+		@include media-down(md) {
+			border: 7px solid blue;
+			border-image: url('../../images/team/border-for-button.svg') 7;
+		}
+		position: relative;
+
+		background-color: #fff;
+		background-clip: padding-box;
+		border: 10px solid blue;
+		border-image: url('../../images/team/border-for-button.svg') 10;
+
+		&::after {
+			@include media-down(md) {
+				top: -7px;
+				left: -7px;
+
+				height: calc(100% + 14px);
+			}
+			content: '';
+
+			position: absolute;
+			top: -10px;
+			left: -10px;
+			transform-origin: center;
+
+			width: 1px;
+			height: calc(100% + 20px);
+
+			background-color: #fff;
+		}
+	}
+
+	&__button-left,
+	&__button-right {
+		@include media-down(md) {
+			font-size: 14px;
+		}
+		display: flex;
+		flex: 1 1 50%;
+		align-items: center;
+		justify-content: center;
+
+		font-size: rem(17);
+		font-weight: 500;
+		font-style: normal;
+		line-height: 140%;
+		text-transform: uppercase;
+	}
+
+	&__circle {
+		@extend .border-card__circle;
+	}
+
+	&__content {
+		@extend .border-card__content;
+		@include media-down(xl) {
+			font-size: rem(16);
+		}
+		@include media-down(md) {
+			padding: 20px;
+
+			font-size: rem(15);
+		}
+		padding: 25px 108px;
+	}
+
+	&__footer {
+		display: flex;
+
+		margin-top: 0;
+
+		border: 1px solid #fff;
+		border-top: none;
+	}
+
+	&__header {
+		@extend .border-card__header;
+	}
+
+	&__label {
+		@extend .border-card__label;
+	}
+}
+
+.team-image {
+	@include media-down(xl) {
+		max-width: none;
+	}
+
+	@include media-down(md) {
+		height: 225px;
+	}
+	position: relative;
+
+	align-self: end;
+
+	width: 100%;
+	max-width: 687px;
+	height: 321px;
+
+	&__border {
+		@include media-down(xl) {
+			background: url('../../images/team/border-for-brain-md.svg')
+				no-repeat;
+		}
+
+		@include media-down(md) {
+			background: url('../../images/team/border-for-brain-xs.svg')
+				no-repeat;
+		}
+		position: relative;
+
+		height: 100%;
+
+		background: url('../../images/team/border-for-brain.svg') no-repeat;
+	}
+
+	&__image {
+		@include media-down(xl) {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			width: 600px;
+			height: 500px;
+
+			background: url('../../images/team/brain-md.png') center no-repeat;
+		}
+
+		@include media-down(md) {
+			display: none;
+		}
+		pointer-events: none;
+
+		position: absolute;
+		top: 50%;
+		bottom: 50%;
+		transform: translate(-20%, -51%);
+
+		display: none;
+
+		width: 923px;
+		height: 1023px;
+
+		background: url('../../images/team/brain.png') no-repeat;
+	}
+
+	&__blur-1 {
+		@include media-down(xl) {
+			top: -40%;
+			left: 30%;
+			transform: rotate(-172.91deg);
+
+			width: 367px;
+			height: 571px;
+
+			background: conic-gradient(
+				from 180deg at 50% 50%,
+				#7362df 0deg,
+				#9e24e9 112.5deg,
+				#2e21c5 247.5deg,
+				#841cd7 345deg,
+				#7362df 360deg
+			);
+			filter: blur(92.5px);
+		}
+
+		@include media-down(md) {
+			position: absolute;
+			top: -30%;
+			left: 10%;
+			transform: rotate(-158.98deg);
+
+			width: 238.04px;
+			height: 350.94px;
+
+			background: conic-gradient(
+				from 180deg at 50% 50%,
+				#7362df 0deg,
+				#9e24e9 112.5deg,
+				#2e21c5 247.5deg,
+				#841cd7 345deg,
+				#7362df 360deg
+			);
+			filter: blur(59.9957px);
+		}
+		position: absolute;
+		top: -65%;
+		left: 50%;
+		transform: matrix(0.7, -0.63, 0.83, 0.69, 0, 0) translate(-50%);
+
+		width: 261px;
+		height: 432px;
+
+		background: #db53a5;
+		filter: blur(114.792px);
+	}
+
+	&__blur-2 {
+		@include media-down(xl) {
+			display: none;
+		}
+		position: absolute;
+		top: 0;
+		left: 10%;
+		transform: matrix(0.96, -0.38, 0.25, 0.93, 0, 0);
+
+		width: 143px;
+		height: 209px;
+
+		background: #df9662;
+		filter: blur(114.792px);
+	}
+
+	&__blur-3 {
+		@include media-down(xl) {
+			display: none;
+		}
+		position: absolute;
+		right: 10%;
+		bottom: -20%;
+		transform: matrix(0.7, -0.63, 0.83, 0.69, 0, 0);
+
+		width: 255px;
+		height: 227px;
+
+		background: #5371db;
+		filter: blur(68.8752px);
+	}
+
+	&__blur-4 {
+		@include media-down(xl) {
+			display: none;
+		}
+		position: absolute;
+		top: 30%;
+		left: 20%;
+		transform: matrix(0.87, 0.61, -0.43, 0.84, 0, 0);
+		transform-origin: center;
+
+		width: 329px;
+		height: 322px;
+
+		background: linear-gradient(180deg, #db53a5 0%, #1082e7 100%);
+		filter: blur(114.792px);
+	}
+}
+
+.team-card {
+	font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+
+	&__circle {
+		@extend .border-card__circle;
+	}
+
+	&__content {
+		@extend .border-card__content;
+		@include media-down(xl) {
+			padding-bottom: 40px;
+		}
+
+		@include media-down(md) {
+			padding: 20px;
+			padding-bottom: 30px;
+		}
+	}
+
+	&__header {
+		@extend .border-card__header;
+	}
+
+	&__item {
+		@include media-down(xl) {
+			font-size: rem(16);
+		}
+
+		@include media-down(md) {
+			font-size: rem(15);
+		}
+		position: relative;
+
+		&::before {
+			@include media-down(md) {
+				background: url('../../images/team/list-marker.svg') left 6px
+					no-repeat;
+			}
+			content: '';
+
+			position: absolute;
+			right: 100%;
+
+			width: 30px;
+			height: 100%;
+
+			background: url('../../images/team/list-marker.svg') left center
+				no-repeat;
+		}
+	}
+
+	&__label {
+		@extend .border-card__label;
+	}
+
+	&__list {
+		@include media-down(xl) {
+			display: flex;
+			gap: 90px;
+		}
+
+		@include media-down(md) {
+			display: block;
+
+			padding-left: 30px;
+		}
+		padding-left: 70px;
+	}
+
+	&__text {
+		@include media-down(xl) {
+			margin-bottom: 20px;
+
+			font-size: rem(16);
+		}
+
+		@include media-down(md) {
+			margin-bottom: 15px;
+
+			font-size: rem(15);
+		}
+		margin-bottom: 10px;
+
+		font-size: rem(17);
+		font-weight: 500;
+		line-height: 145%;
+	}
+}

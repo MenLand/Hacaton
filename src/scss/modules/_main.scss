@@ -1,0 +1,405 @@
+.main {
+	&__container {
+		@include media-down(xl) {
+			transform: scale(var(--zoom-factor, 1));
+			transform-origin: center top;
+
+			width: 768px;
+			height: 1047px;
+		}
+
+		@include media-down(md) {
+			width: 320px;
+			height: 729px;
+		}
+	}
+
+	&__title {
+		@include media-down(xl) {
+			margin-bottom: 30px;
+
+			font-size: 48px;
+			font-weight: 400;
+			font-style: normal;
+			line-height: 110%;
+			text-align: center;
+			letter-spacing: -0.03em;
+		}
+
+		@include media-down(md) {
+			margin-bottom: 15px;
+
+			font-size: 34px;
+		}
+
+		margin-bottom: 50px;
+
+		font-size: rem(82);
+		line-height: 110%;
+		text-align: center;
+		letter-spacing: -0.03em;
+	}
+
+	&__wrapper {
+		@include media-down(xl) {
+			flex-flow: wrap;
+			row-gap: 57px;
+		}
+
+		@include media-down(md) {
+			row-gap: 20px;
+		}
+		display: flex;
+		column-gap: 28px;
+		justify-content: space-between;
+	}
+}
+
+.main-left {
+	@include media-down(xl) {
+		flex-basis: 100%;
+	}
+	display: flex;
+	flex: 1 1 50%;
+	flex-direction: column;
+
+	&__button {
+		@include media-down(md) {
+			@include border-button(10);
+			padding: 13px 0;
+
+			font-size: 14px;
+		}
+
+		@include border-button(15);
+		display: block;
+
+		width: 100%;
+		padding: 20px 0;
+
+		font-weight: 600;
+		line-height: 140%;
+		text-transform: uppercase;
+	}
+
+	&__take-part {
+		@include media-down(xl) {
+			padding: 30px;
+
+			font-size: rem(16);
+
+			background-image: url('../../images/main/take-part-border-md.svg');
+		}
+
+		@include media-down(md) {
+			margin-bottom: 10px;
+			padding: 20px;
+			padding-right: 14px;
+
+			font-size: rem(15);
+
+			background-image: url('../../images/main/take-part-border-xs.svg');
+		}
+
+		margin-bottom: 20px;
+		padding: 30px;
+		padding-right: 106px;
+		padding-bottom: 27px;
+
+		font-family: $secondary-font;
+		font-size: rem(17);
+		font-weight: 500;
+		line-height: 145%;
+
+		background-image: url('../../images/main/take-part-border.svg');
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+}
+
+.prize {
+	@include media-down(xl) {
+		margin-bottom: 26px;
+	}
+
+	@include media-down(md) {
+		margin-bottom: 14px;
+
+		font-size: rem(18);
+	}
+
+	margin-bottom: auto;
+
+	font-size: rem(36);
+	text-transform: uppercase;
+
+	&__line {
+		flex: 1 1 auto;
+
+		height: 2px;
+
+		background-color: #fff;
+	}
+
+	&__main-prize {
+		@include media-down(md) {
+			padding-bottom: 9px;
+		}
+
+		position: relative;
+
+		padding-bottom: 23px;
+
+		&::after {
+			@include media-down(md) {
+				width: 100%;
+
+				background: url('../../images/main/main-prize-underline-xs.svg')
+					bottom / contain no-repeat;
+			}
+
+			pointer-events: none;
+			content: '';
+
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+
+			width: calc(100% + 16px);
+
+			background: url('../../images/main/main-prize-underline.svg') bottom /
+				contain no-repeat;
+		}
+	}
+
+	&__numbers {
+		@include media-down(md) {
+			column-gap: 9px;
+		}
+		display: flex;
+		column-gap: 18px;
+		align-items: center;
+		justify-content: space-between;
+
+		line-height: 105%;
+		text-align: center;
+	}
+
+	&__text {
+		@include media-down(md) {
+			column-gap: 10px;
+		}
+		display: flex;
+		column-gap: 20px;
+		justify-content: space-between;
+
+		line-height: 105%;
+		color: $background-color;
+		text-shadow: stroke(1, white);
+		letter-spacing: -0.03em;
+	}
+
+	&__bonus {
+		@include media-down(xl) {
+			padding-right: 77px;
+
+			background: url('../../images/main/bonus-vector-md.svg') right
+				bottom no-repeat;
+		}
+		@include media-down(md) {
+			padding-right: 28px;
+			padding-bottom: 9px;
+
+			background: url('../../images/main/bonus-vector-xs.svg') right
+				bottom / contain no-repeat;
+		}
+
+		content: attr(title) '0';
+
+		position: relative;
+
+		flex: 1 1 auto;
+
+		padding-right: 60px;
+		padding-bottom: 23px;
+
+		text-align: right;
+
+		background: url('../../images/main/bonus-vector.svg') right bottom
+			no-repeat;
+	}
+
+	&__title {
+		@include media-down(md) {
+			margin-bottom: 10px;
+			padding: 10px 14px;
+
+			font-size: rem(18);
+		}
+		margin-bottom: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		font-size: rem(28);
+		line-height: 135%;
+		text-align: center;
+		letter-spacing: -0.05em;
+
+		border: 1px solid $primary-color;
+		border-radius: 30px;
+
+		&::before {
+			@include media-down(md) {
+				margin-right: 0;
+			}
+			content: '*';
+
+			margin-right: 10px;
+		}
+
+		&::after {
+			@include media-down(md) {
+				margin-left: 0;
+			}
+			content: '*';
+
+			margin-left: 10px;
+		}
+	}
+}
+
+.main-right {
+	@include media-down(xl) {
+		flex-basis: 100%;
+
+		width: 100%;
+		height: 440px;
+
+		background: url('../../images/main/border-for-cube-md.svg') 0 / 100%
+			100% no-repeat;
+	}
+
+	@include media-down(md) {
+		height: 225px;
+
+		background: url('../../images/main/border-for-cube-xs.svg') 0 / 100%
+			100% no-repeat;
+	}
+
+	position: relative;
+
+	flex: 1 1 50%;
+
+	height: 440px;
+
+	background: url('../../images/main/border-for-cube.svg') 0 / 100% 100%
+		no-repeat;
+
+	&::after,
+	&::before {
+		pointer-events: none;
+		content: '';
+
+		position: absolute;
+	}
+
+	&::after {
+		@include media-down(xl) {
+			top: 34%;
+			left: 71%;
+			transform: rotate(-13.01deg) translate(-50%, -50%) scale(1.1);
+
+			width: 291px;
+			height: 373px;
+
+			background: #a63d88;
+			filter: blur(75px);
+		}
+
+		@include media-down(md) {
+			top: 34%;
+			left: 71%;
+			transform: rotate(-13.01deg) translate(-50%, -50%);
+
+			width: 125.07px;
+			height: 160.31px;
+
+			background: #a63d88;
+			filter: blur(32.234px);
+		}
+
+		top: -17.68px;
+		left: 132.01px;
+		transform: rotate(-13.01deg);
+
+		width: 393.92px;
+		height: 504.92px;
+
+		background: #3248bb;
+		filter: blur(75px);
+	}
+
+	&::before {
+		@include media-down(xl) {
+			top: 62%;
+			left: 32%;
+			transform: rotate(-22.77deg) translate(-50%, -50%) scale(1.3);
+
+			width: 261px;
+			height: 340px;
+
+			background: #7153cb;
+			filter: blur(75px);
+		}
+
+		@include media-down(md) {
+			top: 62%;
+			left: 32%;
+			transform: rotate(-22.77deg) translate(-50%, -50%);
+
+			width: 112.17px;
+			height: 146.13px;
+
+			background: #7153cb;
+			filter: blur(32.234px);
+		}
+
+		top: 139.93px;
+		left: -50.7px;
+		transform: rotate(-22.77deg);
+
+		width: 374.17px;
+		height: 487.42px;
+
+		background: #7153cb;
+		filter: blur(75px);
+	}
+
+	&__image {
+		@include media-down(xl) {
+			width: 700px;
+			height: 700px;
+		}
+
+		@include media-down(md) {
+			left: 52%;
+
+			width: 350px;
+			height: 350px;
+		}
+
+		pointer-events: none;
+
+		position: absolute;
+		z-index: 2;
+		top: 45%;
+		left: 57%;
+		transform: translate(-50%, -46%);
+
+		width: 703px;
+		height: 642px;
+
+		background: url('../../images/main/cube.png') 0 / contain no-repeat;
+	}
+}

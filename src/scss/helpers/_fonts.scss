@@ -1,0 +1,8 @@
+@use './mixins/font';
+
+@include font.font-face('Rugen-Expanded', '../fonts/Rugen-Expanded');
+@include font.font-face(
+	'Menoe Grotesque Pro Regular',
+	'../fonts/Menoe Grotesque Pro Regular',
+	500
+);

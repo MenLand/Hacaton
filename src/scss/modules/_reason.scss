@@ -1,0 +1,151 @@
+@use 'sass:math';
+
+.reason {
+	counter-reset: reason-cont;
+
+	&__container {
+		@include media-down(xl) {
+			transform: scale(var(--zoom-factor, 1));
+			transform-origin: center top;
+
+			width: 768px;
+			height: 800px;
+		}
+		@include media-down(md) {
+			width: 320px;
+			height: 1029px;
+		}
+	}
+
+	&__title {
+		@include media-down(xl) {
+			margin-bottom: 50px;
+		}
+		@include media-down(md) {
+			margin-bottom: 30px;
+		}
+
+		margin-bottom: 60px;
+	}
+}
+
+.reason-item {
+	@include media-down(md) {
+		flex-direction: column;
+		row-gap: 15px;
+
+		padding: 20px 0;
+	}
+
+	display: flex;
+	justify-content: space-between;
+
+	padding: 40px 0;
+
+	&:not(:last-child) {
+		border-bottom: 1px solid rgb(255 255 255 / 20%);
+	}
+
+	&:first-child {
+		padding-top: 0;
+	}
+
+	&:last-child {
+		padding-bottom: 0;
+	}
+
+	&__number {
+		$block-width: 72px;
+		@include media-down(xl) {
+			width: 60px;
+			height: 60px;
+			margin-top: 5px;
+
+			font-size: rem(22);
+		}
+
+		@include media-down(md) {
+			width: 50px;
+			height: 50px;
+			margin-top: 0;
+
+			font-size: rem(22);
+		}
+		display: flex;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+
+		width: math.percentage(math.div($block-width, $container-width));
+		height: 64px;
+		margin-top: 10px;
+
+		font-size: rem(28);
+		line-height: 135%;
+		text-transform: uppercase;
+		letter-spacing: -0.05em;
+
+		border: 5px solid;
+		border-image: url('../../images/component-border.svg') 5;
+
+		&::after {
+			content: counter(reason-cont);
+			counter-increment: reason-cont;
+		}
+	}
+
+	&__text {
+		$block-width: 482px;
+		@include media-down(xl) {
+			flex-basis: 222px;
+
+			font-size: rem(16);
+			font-weight: 500;
+			font-style: normal;
+		}
+
+		@include media-down(md) {
+			flex-basis: auto;
+
+			font-size: rem(15);
+		}
+
+		flex-basis: math.percentage(math.div($block-width, $container-width));
+
+		font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+		font-size: rem(17);
+		line-height: 145%;
+	}
+
+	&__title {
+		$block-width: 482px;
+
+		@include media-down(xl) {
+			flex-basis: 341px;
+
+			font-size: rem(24);
+			font-weight: 400;
+			line-height: 135%;
+			letter-spacing: -0.05em;
+		}
+
+		@include media-down(md) {
+			flex-basis: auto;
+
+			margin-bottom: 15px;
+
+			font-size: rem(20);
+			font-weight: 400;
+			line-height: 135%;
+		}
+		position: relative;
+
+		flex-basis: math.percentage(math.div($block-width, $container-width));
+
+		font-size: rem(28);
+		font-weight: normal;
+		line-height: 135%;
+		text-transform: uppercase;
+		letter-spacing: -0.05em;
+	}
+}

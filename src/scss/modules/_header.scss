@@ -1,0 +1,485 @@
+@use 'sass:math';
+@use 'sass:list';
+
+.header {
+	@include media-down(md) {
+		padding-top: 10px;
+	}
+	position: relative;
+
+	padding-top: 15px;
+
+	&::before {
+		content: '';
+
+		position: absolute;
+		top: -200px;
+		left: -150px;
+		transform: rotate(22.44deg);
+
+		width: 320px;
+		height: 370px;
+
+		background: #3d2abf;
+		filter: blur(150px);
+
+		.menu--opened & {
+			@include media-down(md) {
+				top: -0;
+				left: -70px;
+				transform: rotate(75.62deg);
+
+				width: 342.05px;
+				height: 235.48px;
+			}
+			position: absolute;
+			top: 0;
+			left: -180px;
+			transform: rotate(75.62deg);
+
+			width: 475px;
+			height: 327px;
+
+			background: conic-gradient(
+				from 180deg at 50% 50%,
+				#7362df 0deg,
+				#f931d9 112.5deg,
+				#153dea 224.87deg,
+				#bc1cd7 360deg
+			);
+			filter: blur(110px);
+		}
+	}
+
+	&__container {
+		overflow: hidden;
+	}
+
+	.menu--opened & {
+		position: fixed;
+		z-index: $zindex-fixed;
+		top: 0;
+		left: 0;
+
+		overflow-x: hidden;
+		overflow-y: scroll;
+
+		width: 100%;
+		height: 100vh;
+
+		background-color: $background-color;
+	}
+
+	&__logo {
+		@include media-down(md) {
+			height: rem(17);
+		}
+		cursor: pointer;
+
+		position: relative;
+		z-index: 1;
+
+		& > img {
+			height: 100%;
+		}
+	}
+
+	&__line {
+		@include media-down(xl) {
+			display: block;
+		}
+
+		@include media-down(md) {
+			right: rem(22);
+			bottom: rem(10);
+			left: rem(224);
+		}
+		position: absolute;
+		right: rem(46);
+		bottom: rem(17);
+		left: rem(497);
+
+		display: none;
+
+		height: rem(1);
+
+		background-color: white;
+
+		&::after {
+			@include media-down(md) {
+				width: rem(6);
+				height: rem(6);
+			}
+			content: '';
+
+			position: absolute;
+			left: 100%;
+			transform: translateY(calc(-50% + #{rem(0.5)}));
+
+			width: rem(9);
+			height: rem(9);
+
+			border: rem(1) solid white;
+			border-radius: 50%;
+		}
+	}
+
+	&__wrapper {
+		--header-height: #{rem(85)};
+		@include media-down(xl) {
+			--header-height: #{rem(71)};
+			padding-left: rem(30);
+		}
+
+		@include media-down(md) {
+			--header-height: #{rem(45)};
+			padding-right: rem(22);
+			padding-left: rem(10);
+		}
+
+		@include media-down(sm) {
+			padding-right: 0;
+			padding-left: rem(10);
+		}
+
+		position: relative;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		height: var(--header-height);
+		padding-right: rem(40);
+		padding-left: rem(50);
+
+		font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+		font-size: rem(16);
+		font-weight: 500;
+
+		&::after,
+		&::before {
+			content: '';
+
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			display: block;
+		}
+
+		&::after {
+			@include media-down(xl) {
+				background: url('../../images/header/right-vector-md.svg') right
+					center / contain no-repeat;
+			}
+
+			@include media-down(md) {
+				background: url('../../images/header/right-vector-xs.svg') right
+					center / contain no-repeat;
+			}
+			pointer-events: none;
+
+			background: none;
+		}
+
+		&::before {
+			@include media-down(xl) {
+				background: url('../../images/header/left-vector-md.svg') left
+					center / contain no-repeat;
+			}
+
+			@include media-down(md) {
+				background: url('../../images/header/left-vector-xs.svg') left
+					center / contain no-repeat;
+			}
+			pointer-events: none;
+
+			background: url('../../images/header/all.svg') left center / contain
+				no-repeat;
+		}
+	}
+
+	&__list {
+		@include media-down(lg) {
+			display: none;
+		}
+		display: flex;
+		flex-direction: row;
+
+		margin: 0 rem(-25);
+	}
+
+	&__list-item {
+		position: relative;
+		z-index: 1;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		& > a {
+			@include adaptive-value-between(padding-right, 25, 10, xl, lg);
+			@include adaptive-value-between(padding-left, 25, 10, xl, lg);
+			padding: 0 rem(25);
+
+			color: inherit;
+		}
+	}
+
+	&__menu {
+		align-self: start;
+
+		margin-top: rem(20);
+
+		text-transform: uppercase;
+	}
+
+	&__time {
+		@include media-down(xl) {
+			top: rem(38);
+			left: rem(375);
+		}
+
+		@include media-down(md) {
+			top: rem(27);
+			left: rem(160);
+
+			font-size: rem(10);
+			font-weight: 500;
+			line-height: rem(12);
+		}
+		position: absolute;
+		top: rem(48);
+		left: 33%;
+
+		font-size: rem(16);
+	}
+}
+
+.burger {
+	$this: &;
+
+	@include media-down(lg) {
+		display: block;
+	}
+	@include media-down(md) {
+		font-size: rem(17);
+	}
+	display: none;
+	align-self: start;
+
+	font-size: rem(22);
+	font-weight: 500;
+	font-style: normal;
+	line-height: 105%;
+	color: #fff;
+
+	&__button {
+		@include media-down(md) {
+			padding: rem(11) rem(20);
+		}
+
+		display: inline-block;
+
+		height: 100%;
+		padding: rem(17);
+
+		color: #fff;
+
+		background: none;
+	}
+
+	&--active {
+		overflow: hidden;
+
+		#{$this}__button {
+			display: flex;
+
+			// position: relative;
+			justify-content: center;
+
+			font-size: 0;
+
+			&::before {
+				@include media-down(md) {
+					width: rem(18);
+					height: rem(18);
+				}
+
+				content: '';
+
+				transform: rotate(45deg);
+
+				width: rem(28);
+				height: rem(28);
+
+				background: url('../../images/accordion-btn.svg') center /
+					contain no-repeat;
+			}
+		}
+	}
+}
+
+.menu {
+	position: relative;
+
+	display: none;
+
+	&::before {
+		@include media-only(md) {
+			content: '';
+
+			position: absolute;
+			bottom: 200px;
+			left: -300px;
+			transform: rotate(-90deg);
+
+			width: 475px;
+			height: 327px;
+
+			background: #3d2abf;
+			filter: blur(110px);
+		}
+	}
+
+	.menu--opened & {
+		display: block;
+	}
+
+	// .menu__content
+	&__content {
+		@include adaptive-value-between(padding-bottom, 147, 23, md, xs);
+
+		@include media-down(md) {
+			margin-bottom: 18px;
+		}
+		margin-bottom: 30px;
+		padding-bottom: 147px;
+
+		border-bottom: 1px solid rgb(255 255 255 / 20%);
+	}
+
+	&__title {
+		@include adaptive-value-between(margin-top, 47, 20, md, xs);
+		@include adaptive-value-between(margin-bottom, 60, 20, md, xs);
+
+		@include adaptive-value-between(height, 109, 48, md, xs);
+
+		height: 109px;
+		margin-top: 47px;
+		margin-bottom: 60px;
+
+		background: url('../../images/header/menu.svg') center / contain
+			no-repeat;
+	}
+
+	// .menu__questions
+	&__questions {
+		position: relative;
+	}
+
+	// .menu__text
+	&__text {
+		@include adaptive-value-between(max-width, 1000, 428, xl, md);
+		@include adaptive-value-between(max-width, 428, 255, md, xs);
+		@include adaptive-value-between(font-size, 36, 18, md, xs);
+
+		@include media-down(md) {
+			margin-bottom: 24px;
+		}
+		margin-bottom: 30px;
+
+		font-family: $main-font;
+		font-size: rem(36);
+		font-weight: 400;
+		font-style: normal;
+		line-height: 135%;
+		text-transform: uppercase;
+		letter-spacing: -0.05em;
+	}
+
+	// .menu__image
+	&__image {
+		@include adaptive-value-between(width, 300, 150, md, xs);
+		@include adaptive-value-between(height, 300, 150, md, xs);
+		@include adaptive-value-between(bottom, -80, -61, md, xs);
+
+		pointer-events: none;
+
+		position: absolute;
+		right: 0;
+		bottom: -80px;
+		transform: scale(1.9);
+
+		width: 300px;
+		height: 300px;
+
+		background: url('../../images/telegram.png') center / cover no-repeat;
+	}
+
+	// .menu__button
+	&__button {
+		@include media-down(md) {
+			padding: 13px 0;
+		}
+		@include border-button;
+		display: block;
+
+		width: 100%;
+		padding: 20px 0;
+
+		font-weight: 500;
+		font-style: normal;
+		text-align: center;
+
+		background-color: #fff;
+	}
+
+	&__inner {
+		@include media-down(md) {
+			padding-bottom: 10px;
+		}
+		position: relative;
+
+		padding-bottom: 30px;
+	}
+
+	.nav-menu {
+		&__list {
+			--column-gap: 40px;
+
+			@include adaptive-value-between(row-gap, 50, 10, md, xs);
+			display: grid;
+			grid-template-columns: repeat(
+				auto-fill,
+				minmax(330px, calc(50% - var(--column-gap) / 2))
+			);
+			row-gap: 50px;
+			column-gap: 40px;
+
+			margin: 0;
+		}
+
+		&__item {
+			@include adaptive-value-between(font-size, 36, 18, md, xs);
+
+			flex: 1 1 calc(50% - 25px);
+
+			font-family: $main-font;
+			font-size: rem(36);
+			font-weight: 400;
+			font-style: normal;
+			line-height: 105%;
+			letter-spacing: -0.03em;
+
+			background: url('../../images/header/list-style.svg') left center
+				no-repeat;
+
+			& > a {
+				padding-left: 35px;
+			}
+		}
+	}
+}

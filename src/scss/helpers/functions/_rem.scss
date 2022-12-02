@@ -1,0 +1,12 @@
+@use 'sass:math';
+@use 'sass:string';
+@use '../variables' as vars;
+
+@function rem($value) {
+	$value: math.div(
+		$value,
+		($value * 0 + 1)
+	); // Remove the unit of measurement
+
+	@return math.div($value * 1px, vars.$font-size) * 1rem;
+}

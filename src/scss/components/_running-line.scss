@@ -1,0 +1,82 @@
+.running-line {
+	@include media-down(xl) {
+		height: 200px;
+	}
+
+	@include adaptive-value-between(height, 200, 70, md, xs);
+
+	position: relative;
+
+	display: flex;
+	align-items: center;
+
+	height: 270px;
+
+	&__content {
+		@include adaptive-value-between(height, 60, 35, md, xs);
+
+		@include media-down(md) {
+			font-size: rem(17);
+		}
+		position: absolute;
+		left: 50%;
+
+		display: flex;
+		align-items: center;
+
+		width: 120%;
+		height: 60px;
+
+		font-size: rem(30);
+		font-weight: 400;
+		font-style: normal;
+		line-height: 140%;
+		text-transform: uppercase;
+		letter-spacing: -0.05em;
+
+		border: 1px solid rgb(255 255 255 / 20%);
+	}
+
+	&__text {
+		white-space: nowrap;
+
+		&.--animate {
+			animation: marquee 15s linear infinite;
+		}
+	}
+
+	&--light {
+		@include media-down(xl) {
+			transform: translateX(-50%) rotate(6deg);
+		}
+		transform: translateX(-50%) rotate(4deg);
+
+		background: linear-gradient(
+			90.22deg,
+			#009ef8 0.34%,
+			#ce29e9 23.6%,
+			#4031ee 47.34%,
+			#e156f8 74.47%,
+			#009ef8 93.37%
+		);
+	}
+
+	&--dark {
+		@include media-down(xl) {
+			transform: translateX(-50%) rotate(-6deg);
+		}
+		transform: translateX(-50%) rotate(-4deg);
+
+		background-color: $background-color;
+	}
+}
+
+@keyframes marquee {
+	0% {
+		transform: translate(-100%, 0);
+	}
+
+	100% {
+		transform: translate(0%, 0);
+	}
+}

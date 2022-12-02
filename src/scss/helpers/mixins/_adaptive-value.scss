@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use '../variables' as vars;
+
+@mixin adaptive-value-between(
+	$property,
+	$start-size,
+	$min-size,
+	$bigSize,
+	$smallSize
+) {
+	$add-size: $start-size - $min-size;
+	$min: map.get(vars.$breakpoints, $smallSize);
+	$max: map.get(vars.$breakpoints, $bigSize);
+
+	@include media-between($smallSize, $bigSize) {
+		#{$property}: adaptive-value($start-size, $min-size, $max, $min);
+	}
+}

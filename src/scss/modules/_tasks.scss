@@ -1,0 +1,160 @@
+.task-card {
+	$this: &;
+
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+
+	font-weight: 400;
+
+	&--1 {
+		grid-area: task1;
+
+		height: 100%;
+
+		#{$this}__title {
+			width: 438px;
+		}
+
+		#{$this}__right-side {
+			right: -91px;
+			bottom: -41px;
+		}
+	}
+
+	&--2 {
+		grid-area: task2;
+
+		height: 405px;
+
+		#{$this}__title {
+			width: 402px;
+		}
+
+		#{$this}__right-side {
+			right: -52px;
+			bottom: -62px;
+		}
+	}
+
+	&--3 {
+		grid-area: task3;
+
+		height: 100%;
+
+		#{$this}__title {
+			width: 483px;
+		}
+
+		#{$this}__right-side {
+			right: -34px;
+			bottom: -25px;
+		}
+	}
+
+	&--4 {
+		grid-area: task4;
+
+		height: 405px;
+
+		#{$this}__title {
+			width: 420px;
+		}
+
+		#{$this}__right-side {
+			right: -114px;
+			bottom: -150px;
+		}
+	}
+
+	&__image {
+		position: relative;
+		z-index: 2;
+	}
+
+	&__action {
+		padding: 5px 15px;
+
+		font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+		font-size: rem(16);
+		font-weight: 500;
+		line-height: 140%;
+		color: $primary-color;
+
+		background-color: transparent;
+		border: 1px solid #fff;
+		border-radius: 500px;
+
+		&:not(:last-child) {
+			margin-right: 20px;
+		}
+	}
+
+	&__footer {
+		display: flex;
+
+		margin-top: auto;
+
+		&--column {
+			display: inline-flex;
+			flex-direction: column;
+			align-items: flex-start;
+
+			#{$this}__action {
+				margin-right: 0;
+
+				&:not(:last-child) {
+					margin-bottom: 20px;
+				}
+			}
+		}
+	}
+
+	&__left-side {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__right-side {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+
+	&__title {
+		font-size: rem(28);
+		font-weight: 400;
+		text-transform: uppercase;
+		letter-spacing: -0.05em;
+	}
+
+	&__wrapper {
+		display: flex;
+
+		height: 100%;
+	}
+}
+
+.tasks {
+	&__button {
+		@include border-button(15);
+
+		grid-area: button;
+	}
+
+	&__grid {
+		display: grid;
+		grid-auto-rows: auto;
+		grid-template:
+			'task1 task2' auto
+			'task3 task2' 26px
+			'task3 task4' auto
+			'button task4' 94px / calc(688px * 100% / 1200px) auto;
+		gap: 30px;
+	}
+
+	&__title {
+		margin-bottom: 60px;
+	}
+}
