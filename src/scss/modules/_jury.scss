@@ -263,7 +263,7 @@
 
 	&__line {
 		@include media-down(xl) {
-			background-image: url('../images/jury/line-md.svg');
+			background-image: url('images/jury/line-md.svg');
 		}
 
 		@include media-down(md) {
@@ -272,7 +272,7 @@
 			width: 50%;
 			margin: 0 auto;
 
-			background-image: url('../images/jury/decor-line-md.svg');
+			background-image: url('images/jury/decor-line-md.svg');
 			background-size: contain;
 		}
 
@@ -282,7 +282,7 @@
 		height: 37px;
 		margin-top: -9px;
 
-		background-image: url('../images/jury/line.svg');
+		background-image: url('images/jury/line.svg');
 		background-repeat: no-repeat;
 		background-position: center;
 	}

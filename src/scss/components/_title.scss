@@ -22,7 +22,7 @@
 	background: rgb(255 255 255 / 10%);
 	backdrop-filter: blur(25px);
 	border: 2px solid;
-	border-image: url('../images/component-border.svg') 2;
+	border-image: url('images/component-border.svg') 2;
 
 	&--over {
 		@include media-down(xl) {

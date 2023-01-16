@@ -171,12 +171,12 @@
 
 		&::after {
 			@include media-down(xl) {
-				background: url('../images/header/right-vector-md.svg') right
+				background: url('images/header/right-vector-md.svg') right
 					center / contain no-repeat;
 			}
 
 			@include media-down(md) {
-				background: url('../images/header/right-vector-xs.svg') right
+				background: url('images/header/right-vector-xs.svg') right
 					center / contain no-repeat;
 			}
 			pointer-events: none;
@@ -186,17 +186,17 @@
 
 		&::before {
 			@include media-down(xl) {
-				background: url('../images/header/left-vector-md.svg') left
-					center / contain no-repeat;
+				background: url('images/header/left-vector-md.svg') left center /
+					contain no-repeat;
 			}
 
 			@include media-down(md) {
-				background: url('../images/header/left-vector-xs.svg') left
-					center / contain no-repeat;
+				background: url('images/header/left-vector-xs.svg') left center /
+					contain no-repeat;
 			}
 			pointer-events: none;
 
-			background: url('../images/header/all.svg') left center / contain
+			background: url('images/header/all.svg') left center / contain
 				no-repeat;
 		}
 	}
@@ -315,7 +315,7 @@
 				width: rem(28);
 				height: rem(28);
 
-				background: url('../images/accordion-btn.svg') center / contain
+				background: url('images/accordion-btn.svg') center / contain
 					no-repeat;
 			}
 		}
@@ -371,7 +371,7 @@
 		margin-top: 47px;
 		margin-bottom: 60px;
 
-		background: url('../images/header/menu.svg') center / contain no-repeat;
+		background: url('images/header/menu.svg') center / contain no-repeat;
 	}
 
 	// .menu__questions
@@ -416,7 +416,7 @@
 		width: 300px;
 		height: 300px;
 
-		background: url('../images/telegram.png') center / cover no-repeat;
+		background: url('images/telegram.png') center / cover no-repeat;
 	}
 
 	&__inner {
@@ -456,7 +456,7 @@
 			line-height: 105%;
 			letter-spacing: -0.03em;
 
-			background: url('../images/header/list-style.svg') left center
+			background: url('images/header/list-style.svg') left center
 				no-repeat;
 
 			& > a {

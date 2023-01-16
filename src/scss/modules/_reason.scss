@@ -123,7 +123,7 @@
 		letter-spacing: -0.05em;
 
 		border: 5px solid;
-		border-image: url('../images/component-border.svg') 5;
+		border-image: url('images/component-border.svg') 5;
 
 		&::after {
 			content: counter(reason-cont);
