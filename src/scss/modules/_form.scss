@@ -1,6 +1,32 @@
 .form-section {
+	&__container {
+		position: relative;
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			z-index: -1;
+			right: -250px;
+			bottom: -300px;
+			transform: rotate(119.63deg);
+
+			width: 367px;
+			height: 571px;
+
+			/* Дополнительный 500 */
+
+			background: #3d2abf;
+			filter: blur(92.5px);
+		}
+	}
+
 	// .form__title
 	&__title {
+		@include media-down(md) {
+			margin-top: -40px;
+			margin-bottom: 30px;
+		}
 		margin-top: -120px;
 		margin-bottom: 50px;
 	}
@@ -8,12 +34,16 @@
 	// .form-section__attention-wrapper
 	&__attention-wrapper {
 		display: flex;
+		align-items: start;
 
 		margin-bottom: 30px;
 	}
 
 	// .form-section__attention-element
 	&__attention-element {
+		@include media-down(md) {
+			margin-top: 4px;
+		}
 		position: relative;
 
 		display: flex;
@@ -34,9 +64,14 @@
 		}
 
 		&::after {
+			@include media-down(md) {
+				width: 15px;
+				height: 15px;
+			}
 			content: '';
 
 			display: block;
+			flex-shrink: 0;
 
 			width: 30px;
 			height: 30px;
@@ -50,6 +85,11 @@
 
 	// .form-section__attention-text
 	&__attention-text {
+		@include media-down(md) {
+			max-width: 200px;
+
+			font-size: rem(16);
+		}
 		display: inline-block;
 
 		max-width: 387px;
@@ -63,6 +103,16 @@
 
 	// .form-section__form
 	&__form {
+		@include media-down(md) {
+			grid-template-columns: 100%;
+
+			padding: 0;
+		}
+
+		display: grid;
+		grid-template-columns: repeat(2, calc(50% - 15px));
+		gap: 20px 30px;
+
 		padding: 15px;
 
 		border-style: solid;
@@ -70,24 +120,8 @@
 		border-image: url('../../images/form-border.svg') 25;
 	}
 
-	// .form__row
-	&__row {
-		display: flex;
-		column-gap: 30px;
-
-		&:not(:last-child) {
-			margin-bottom: 20px;
-		}
-	}
-
-	// .form__column
-	&__column {
-		flex: 1 1 50%;
-	}
-
 	// .form-section__control-wrapper
 	&__control-wrapper {
-		@extend %field-control;
 		height: 100%;
 	}
 
@@ -103,10 +137,11 @@
 
 	// .form-section__button
 	&__action {
-		@include border-button;
-		width: 100%;
-		padding: 20px 0;
+		@include media-down(md) {
+			width: 100%;
 
-		font-weight: 500;
+			outline-offset: -1px;
+		}
+		grid-column: 2 span;
 	}
 }

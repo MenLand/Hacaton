@@ -10,6 +10,7 @@ const { avifImage } = require('./tasks/avifImage');
 const { javascript } = require('./tasks/javascript');
 const { font } = require('./tasks/font');
 const { paths } = require('./tasks/paths');
+const fs = require('fs');
 
 const browserSync = require('browser-sync');
 
@@ -18,6 +19,21 @@ const watcher = () => {
 		port: 8000,
 		server: {
 			baseDir: paths.buildFolder,
+		},
+		snippetOptions: {
+			rule: {
+				match: /<\/head>/i,
+				fn: function (snippet) {
+					return (
+						snippet +
+						String(
+							fs.readFileSync(
+								'./browserSyncSnippets/scroller.html'
+							)
+						)
+					);
+				},
+			},
 		},
 	});
 
@@ -36,16 +52,32 @@ exports.default = series(
 		font,
 		htmlInclude,
 		style,
+		javascript,
 		image,
 		wepbImage,
 		avifImage,
-		svgSprite,
-		javascript
+		svgSprite
 	),
 	watcher
 );
 
+exports.build = series(
+	clean,
+	htmlInclude,
+	style,
+	javascript,
+	image,
+	wepbImage,
+	avifImage,
+	svgSprite
+);
+
 task('zip', zip);
-task('style', style);
-task('font', font);
+task('style', series(clean, style));
+task('script', series(clean, javascript));
+task('font', series(clean, font));
+task('image', series(clean, image));
+task('webp', series(clean, wepbImage));
+task('svg', series(clean, svgSprite));
 task('clean', clean);
+task('html', series(htmlInclude, style));

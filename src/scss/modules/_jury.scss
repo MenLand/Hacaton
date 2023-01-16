@@ -1,19 +1,115 @@
 .jury {
+	position: relative;
+
 	&__slider {
+		@include media-down(xl) {
+			overflow: visible;
+		}
 		position: relative;
+
+		margin-top: -45px;
+		padding-top: 45px;
 	}
 
 	&__title {
+		@include media-down(xl) {
+			margin-bottom: 75px;
+		}
+
+		@include media-down(md) {
+			margin-bottom: 55px;
+		}
 		margin-bottom: 97px;
+	}
+
+	&__container {
+		&::before {
+			@include media-down(md) {
+				position: absolute;
+				top: -20px;
+				left: -100px;
+				transform: rotate(-19.21deg);
+
+				width: 225px;
+				height: 178px;
+
+				filter: blur(50px);
+			}
+			content: '';
+
+			position: absolute;
+			top: 100px;
+			left: -300px;
+
+			width: 533px;
+			height: 544px;
+
+			background: conic-gradient(
+				from 180deg at 50% 50%,
+				#7362df 0deg,
+				#9e24e9 112.5deg,
+				#2e21c5 247.5deg,
+				#841cd7 345deg,
+				#7362df 360deg
+			);
+			filter: blur(92.5px);
+			border-radius: 50%;
+		}
+
+		&::after {
+			@include media-down(xl) {
+				bottom: -200px;
+			}
+
+			@include media-down(md) {
+				position: absolute;
+				right: -150px;
+				bottom: 0;
+				transform: rotate(-172.91deg);
+
+				width: 182.21px;
+				height: 283.49px;
+
+				/* Angular */
+
+				filter: blur(50px);
+			}
+			content: '';
+
+			position: absolute;
+			right: -200px;
+			bottom: -250px;
+			transform: rotate(-172.91deg);
+
+			width: 367px;
+			height: 571px;
+
+			/* Angular */
+
+			background: conic-gradient(
+				from 180deg at 50% 50%,
+				#7362df 0deg,
+				#f931d9 112.5deg,
+				#153dea 224.87deg,
+				#bc1cd7 360deg
+			);
+			filter: blur(92.5px);
+		}
 	}
 }
 
 .jury-card {
 	$this: &;
-	position: relative;
 
-	&__circle {
-		@extend %border-card-circles;
+	&::after {
+		content: '';
+
+		position: absolute;
+
+		width: 100%;
+		height: 100%;
+
+		background: rgb(1 6 27 / 40%);
 	}
 
 	&__content {
@@ -23,18 +119,12 @@
 		height: 100%;
 	}
 
-	&__cross {
-		@extend %border-card-header-cross-lines;
-	}
-
-	&__header {
-		@extend %border-card-header;
-		height: 40px;
-	}
-
 	&__image {
+		@include media-down(md) {
+			height: 164px;
+		}
 		width: 100%;
-		height: 100%;
+		height: 246px;
 
 		object-fit: cover;
 	}
@@ -45,6 +135,16 @@
 
 	&__inner {
 		@extend %border-card-content;
+		@include media-down(xl) {
+			padding: 10px;
+			padding-bottom: 30px;
+		}
+
+		@include media-down(md) {
+			padding: 15px;
+			padding-bottom: 30px;
+		}
+
 		display: flex;
 		flex-direction: column;
 
@@ -53,19 +153,14 @@
 		padding-bottom: 30px;
 	}
 
-	&__planet {
-		width: 31px;
-		height: 31px;
-		margin-left: auto;
-
-		background: url('../../images/jury/planet.svg') center no-repeat;
-	}
-
 	&__row {
+		@include media-down(md) {
+			font-size: rem(15);
+		}
 		display: flex;
 		justify-content: space-between;
 
-		font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+		font-family: $secondary-font;
 		font-size: rem(17);
 		font-weight: 500;
 		font-style: normal;
@@ -77,6 +172,9 @@
 	}
 
 	&__title {
+		@include media-down(xl) {
+			font-size: rem(24);
+		}
 		font-size: rem(36);
 		font-weight: 400;
 		font-style: normal;
@@ -84,6 +182,8 @@
 	}
 
 	&__text {
+		text-transform: uppercase;
+
 		&--underline {
 			position: relative;
 
@@ -103,32 +203,23 @@
 	}
 
 	&__image-content {
-		height: 246px;
 		margin-bottom: 20px;
 
 		border: 1px solid #fff;
 	}
 
 	&--middle {
-		position: relative;
-		top: -30px;
+		transform: translateY(-30px) !important;
+
+		transition: transform 0.3s;
+
+		&::after {
+			content: none;
+		}
 
 		#{$this}__header {
 			height: 46px;
 			padding-left: 0;
-		}
-	}
-
-	&--darken {
-		&::after {
-			content: '';
-
-			position: absolute;
-
-			width: 100%;
-			height: 100%;
-
-			background: rgb(1 6 27 / 40%);
 		}
 	}
 
@@ -146,8 +237,11 @@
 
 .jury-slider {
 	&__buttons {
+		@include media-down(md) {
+			display: none;
+		}
 		position: absolute;
-		top: -45px;
+		top: 0;
 		left: 100%;
 		transform: translate(-100%);
 
@@ -157,20 +251,39 @@
 
 	&__card {
 		display: flex;
-		flex-basis: 33.3333%;
 		flex-direction: column;
+
+		height: auto;
 	}
 
 	&__inner {
 		display: flex;
-		column-gap: 30px;
 		justify-content: space-between;
 	}
 
 	&__line {
+		@include media-down(xl) {
+			background-image: url('../../images/jury/line-md.svg');
+		}
+
+		@include media-down(md) {
+			transform: translateY(-30px);
+
+			width: 50%;
+			margin: 0 auto;
+
+			background-image: url('../../images/jury/decor-line-md.svg');
+			background-size: contain;
+		}
+
+		@include media-down(sm) {
+			width: 90%;
+		}
 		height: 37px;
 		margin-top: -9px;
 
-		background: url('../../images/jury/line.svg') center no-repeat;
+		background-image: url('../../images/jury/line.svg');
+		background-repeat: no-repeat;
+		background-position: center;
 	}
 }

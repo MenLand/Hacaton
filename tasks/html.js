@@ -7,17 +7,20 @@ const size = require('gulp-size');
 const gulpAvifWebp = require('gulp-avif-webp-html');
 const { isProd } = require('./isProd');
 const { paths } = require('./paths');
+const typograf = require('gulp-typograf');
 
 exports.htmlInclude = htmlInclude = () =>
 	src([`${paths.srcFolder}/*.html`])
 		.pipe(fileInclude())
-		// .pipe(typograf({
-		//   locale: ['ru', 'en-US']
-		// }))
+		// .pipe(
+		// 	typograf({
+		// 		locale: ['ru', 'en-US'],
+		// 	})
+		// )
 		// .pipe(gulpAvifWebp())
 		.pipe(dest(paths.buildFolder))
 		.pipe(gulpIf(isProd(), size({ title: 'HTML: Before compression' })))
 		.pipe(gulpIf(isProd(), htmlMin({ collapseWhitespace: true })))
-		.pipe(gulpIf(isProd(), dest(paths.buildFolder)))
 		.pipe(gulpIf(isProd(), size({ title: 'HTML: After compression' })))
+		.pipe(gulpIf(isProd(), dest(paths.buildFolder)))
 		.pipe(browserSync.stream());

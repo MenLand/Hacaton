@@ -63,14 +63,32 @@
 }
 
 .html__running-line {
-	margin-bottom: 60px;
+	margin-bottom: 30px !important;
+}
+
+.html__team {
+	margin-bottom: 30px !important;
 }
 
 .html__tasks {
+	@include media-down(xl) {
+		margin-bottom: 100px !important;
+	}
+
+	@include media-down(md) {
+		margin-bottom: 75px !important;
+	}
 	margin-bottom: 160px !important;
 }
 
 .html__timeline {
+	@include media-down(xl) {
+		margin-bottom: 100px !important;
+	}
+
+	@include media-down(md) {
+		margin-bottom: 50px !important;
+	}
 	margin-bottom: 152px !important;
 }
 
@@ -79,14 +97,30 @@
 }
 
 .html__form-section {
+	@include media-down(xl) {
+		margin-bottom: 100px !important;
+	}
+	@include media-down(md) {
+		margin-bottom: 75px !important;
+	}
 	margin-bottom: 160px !important;
 }
 
 .html__questions {
+	@include media-down(xl) {
+		margin-bottom: 100px !important;
+	}
+
+	@include media-down(md) {
+		margin-bottom: 80px !important;
+	}
 	margin-bottom: 176px !important;
 }
 
 .html__partners {
+	@include media-down(md) {
+		margin-bottom: 10px !important;
+	}
 	margin-bottom: 50px !important;
 }
 

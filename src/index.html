@@ -5,6 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Hacaton</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.css" />
 		<link rel="stylesheet" href="css/styles.min.css" />
 		<script defer src="js/main.min.js"></script>
 	</head>
@@ -13,28 +16,24 @@
 		<main>
 			@@include("./html/main.html") @@include("./html/images.html")
 			@@include("./html/reason.html") @@include("./html/team.html")
-			<div class="" style="display: none">
-				@@include("./html/running-line.html")
-				@@include("./html/tasks.html")
-				<!-- Timeline -->
-				@@include("./html/timeline.html")
-				<!-- Jury -->
-				@@include("./html/jury.html")
-				<!-- Images2 -->
-				@@include("./html/images2.html")
-				<!-- Form -->
-				@@include("./html/form.html")
-				<!-- Questions -->
-				@@include("./html/questions.html")
-			</div>
+			@@include("./html/running-line.html") @@include("./html/tasks.html")
+			<!-- Timeline -->
+			@@include("./html/timeline.html")
+			<!-- Jury -->
+			@@include("./html/jury.html")
+			<!-- Images2 -->
+			@@include("./html/images2.html")
+			<!-- Form -->
+			@@include("./html/form.html")
+			<!-- Questions -->
+			@@include("./html/questions.html")
 		</main>
-		<div class="" style="display: none">
-			<div class="footer-image">
-				<!-- Partners -->
-				@@include("./html/partners.html")
-				<!-- Footer -->
-				@@include("./html/footer.html")
-			</div>
+
+		<div class="footer-image">
+			<!-- Partners -->
+			@@include("./html/partners.html")
+			<!-- Footer -->
+			@@include("./html/footer.html")
 		</div>
 	</body>
 </html>

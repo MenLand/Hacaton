@@ -1,0 +1,62 @@
+<script async>
+	const fnBrowserDetect = () => {
+		let userAgent = navigator.userAgent;
+		let browserName;
+
+		if (userAgent.match(/chrome|chromium|crios/i)) {
+			browserName = 'chrome';
+		} else if (userAgent.match(/firefox|fxios/i)) {
+			browserName = 'firefox';
+		} else if (userAgent.match(/safari/i)) {
+			browserName = 'safari';
+		} else if (userAgent.match(/opr\//i)) {
+			browserName = 'opera';
+		} else if (userAgent.match(/edg/i)) {
+			browserName = 'edge';
+		} else {
+			browserName = null;
+		}
+
+		return browserName;
+	};
+	const createUUID = () => {
+		let dt = new Date().getTime();
+		const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
+			/[xy]/g,
+			(c) => {
+				const r = (dt + Math.random() * 16) % 16 | 0;
+				dt = Math.floor(dt / 16);
+				return (c == 'x' ? r : (r & 0x3) | 0x8).toString(16);
+			}
+		);
+		return uuid;
+	};
+
+	window.addEventListener('load', () => {
+		const browser = fnBrowserDetect();
+
+		if (browser !== 'chrome') return;
+
+		if (!window.name) {
+			window.name = `bs_${createUUID()}`;
+		}
+		const body = document.body;
+		const scrollBehavior = body.style.scrollBehavior;
+		const scrollState = JSON.parse(
+			sessionStorage.getItem(`bs-scroll_${window.name}`)
+		);
+		if (scrollState) {
+			body.style.scrollBehavior = 'auto';
+			body.scrollTop = scrollState;
+		}
+		setTimeout(() => {
+			body.style.scrollBehavior = scrollBehavior;
+			body.addEventListener('scroll', (e) => {
+				sessionStorage.setItem(
+					`bs-scroll_${window.name}`,
+					JSON.stringify(e.srcElement.scrollTop)
+				);
+			});
+		}, 300);
+	});
+</script>

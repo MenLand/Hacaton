@@ -1,13 +1,77 @@
-@mixin border-button($border-width: 10) {
-	cursor: pointer;
+.border-button {
+	@include media-down(md) {
+		padding: 10px;
 
-	font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+		font-family: $secondary-font;
+		font-size: rem(14);
+		font-weight: 500;
+		font-style: normal;
+		line-height: 40px;
+	}
+	position: relative;
+
+	overflow: hidden;
+	display: block;
+
+	padding: 15px;
+
+	font-family: $secondary-font;
 	font-size: rem(17);
-	color: black;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 64px;
+	color: #01061b;
+	text-align: center;
 	text-transform: uppercase;
 
-	background-color: #fff;
-	background-clip: padding-box;
-	border: #{$border-width}px solid white;
-	border-image: url('../../images/border-button.svg') $border-width;
+	background: #fff;
+	background-clip: content-box;
+	outline: 1px solid #fff;
+
+	&__decor-left,
+	&__decor-right {
+		&::before,
+		&::after {
+			content: '';
+
+			position: absolute;
+
+			width: 1px;
+			height: 50%;
+
+			background-color: #fff;
+		}
+	}
+
+	&__decor-left {
+		&::before {
+			top: -0.5px;
+			left: -1px;
+			transform: rotate(-45deg);
+			transform-origin: top center;
+		}
+
+		&::after {
+			bottom: -0.5px;
+			left: -1px;
+			transform: rotate(45deg);
+			transform-origin: bottom center;
+		}
+	}
+
+	&__decor-right {
+		&::before {
+			top: -0.5px;
+			right: -1px;
+			transform: rotate(45deg);
+			transform-origin: top center;
+		}
+
+		&::after {
+			right: -1px;
+			bottom: -0.5px;
+			transform: rotate(-45deg);
+			transform-origin: bottom center;
+		}
+	}
 }

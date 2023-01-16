@@ -1,61 +1,68 @@
-%border-card-circles {
-	$border-width: 1px;
-	position: relative;
-	left: 21px;
-
-	width: 11px;
-	height: 11px;
-
-	// margin-left: 21px;
-
-	border: $border-width solid #fff;
-	border-radius: 50%;
-
-	&::after,
-	&::before {
-		content: '';
-
-		position: absolute;
-		top: -$border-width;
-
-		width: 11px;
-		height: 11px;
-
-		border: $border-width solid #fff;
-		border-radius: 50%;
-	}
-
-	&::after {
-		left: calc(100% + 10px);
-	}
-
-	&::before {
-		right: calc(100% + 10px);
-	}
-}
-
 %border-card-content {
-	margin: 0;
+	@include media-down(md) {
+		padding: 20px;
+	}
 	padding: 30px;
 
-	border-style: solid;
-	border-width: 1px;
+	border: 1px solid #fff;
 	border-top: none;
 }
 
-%border-card-header {
+// -------------------- Header ------------------------------------
+%base-header {
+	@include media-down(xl) {
+		padding: 0 10px;
+	}
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 
-	height: 30px;
 	padding: 0 13px;
 
 	border: 1px solid #fff;
+
+	&:has(.border-card-header-cross) {
+		padding-left: 0;
+	}
 }
 
-%border-card-label {
-	font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+%large-header {
+	@extend %base-header;
+
+	@include media-down(md) {
+		height: 27px;
+	}
+	height: 45px;
+}
+
+%medium-header {
+	@extend %base-header;
+
+	@include media-down(xl) {
+		height: 22px;
+	}
+
+	@include media-down(md) {
+		height: 27px;
+	}
+	height: 37px;
+}
+
+%small-header {
+	@extend %base-header;
+	@include media-down(md) {
+		height: 27px;
+	}
+	height: 30px;
+}
+
+// -------------------- END Header ------------------------------------
+// -------------------- LABEL ------------------------------------
+%header-label {
+	@include media-down(md) {
+		font-size: rem(12);
+	}
+	font-family: $secondary-font;
 	font-size: rem(14);
 	font-weight: 500;
 	line-height: 145%;
@@ -63,7 +70,12 @@
 	letter-spacing: 0.05em;
 }
 
+// ---------------------- END LABEL -----------------------------------
+
 %border-card-header-cross-lines {
+	@include media-down(md) {
+		width: 26px;
+	}
 	position: relative;
 
 	overflow: hidden;
@@ -102,77 +114,147 @@
 	}
 }
 
-@mixin border-card-header-image($url) {
+%header-circles {
+	$border-width: 1px;
+	$sideLength: 11px;
+
+	@include media-down(md) {
+		width: 9px;
+		height: 9px;
+	}
+	position: relative;
+
+	box-sizing: border-box;
+	width: $sideLength;
+	height: $sideLength;
+
+	border: $border-width solid #fff;
+	border-radius: 50%;
+
+	&::after,
+	&::before {
+		content: '';
+
+		position: absolute;
+		top: -$border-width;
+		left: -$border-width;
+
+		box-sizing: inherit;
+		width: inherit;
+		height: inherit;
+
+		border: inherit;
+		border-radius: inherit;
+	}
+
+	&::after {
+		@include media-down(md) {
+			left: calc(100% + 7px);
+		}
+		left: calc(100% + 10px);
+	}
+
+	&::before {
+		@include media-down(md) {
+			left: calc(100% + 7px + 100% + 7px);
+		}
+		left: calc(100% + 10px + 100% + 10px);
+	}
+}
+
+%header-cross {
+	@include media-down(md) {
+		width: 26px;
+	}
+	position: relative;
+
+	overflow: hidden;
+
+	width: 44px;
+	height: 100%;
+
+	border-right: 1px solid #fff;
+
+	&::after,
+	&::before {
+		content: '';
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform-origin: center;
+
+		width: 160%;
+		height: 1px;
+
+		background-color: #fff;
+	}
+
+	&::after {
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+
+	&::before {
+		transform: translate(-50%, -50%) rotate(-45deg);
+	}
+}
+
+%header-icon {
+	@include media-down(md) {
+		width: 18px;
+		height: 18px;
+	}
 	width: 31px;
 	height: 31px;
 	margin-left: auto;
 
-	background: url($url) center no-repeat;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }
 
-.border-card {
-	&__circle {
-		$border-width: 1px;
-		position: relative;
-		left: 21px;
+.border-card-small-header {
+	@extend %small-header;
+}
 
-		width: 11px;
-		height: 11px;
+.border-card-medium-header {
+	@extend %medium-header;
+}
 
-		// margin-left: 21px;
+.border-card-large-header {
+	@extend %large-header;
+}
 
-		border: $border-width solid #fff;
-		border-radius: 50%;
+.border-card-header-circles {
+	@extend %header-circles;
 
-		&::after,
-		&::before {
-			content: '';
-
-			position: absolute;
-			top: -$border-width;
-
-			width: 11px;
-			height: 11px;
-
-			border: $border-width solid #fff;
-			border-radius: 50%;
-		}
-
-		&::after {
-			left: calc(100% + 10px);
-		}
-
-		&::before {
-			right: calc(100% + 10px);
+	@at-root .border-card-medium-header > & {
+		@include media-down(xl) {
+			width: 6px;
+			height: 6px;
 		}
 	}
+}
 
-	&__content {
-		margin: 0;
-		padding: 30px;
+.border-card-header-cross {
+	@extend %header-cross;
+}
 
-		border-style: solid;
-		border-width: 1px;
-		border-top: none;
-	}
+.border-card-header-label {
+	@extend %header-label;
+}
 
-	&__header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+.border-card-content {
+	@extend %border-card-content;
+}
 
-		height: 30px;
-		padding: 0 13px;
+// ------------------ Header Icons ---------------------
+.border-card-header-tg {
+	@extend %header-icon;
+	background-image: url('../../images/questions/tg.svg');
+}
 
-		border: 1px solid #fff;
-	}
-
-	&__label {
-		font-family: 'Menoe Grotesque Pro Regular', sans-serif;
-		font-size: rem(14);
-		font-weight: 500;
-		line-height: 145%;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-	}
+.border-card-header-planet {
+	@extend %header-icon;
+	background-image: url('../../images/jury/planet.svg');
 }

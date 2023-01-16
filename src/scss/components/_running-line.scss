@@ -12,6 +12,56 @@
 
 	height: 270px;
 
+	&__container {
+		&::after {
+			@include media-down(md) {
+				top: -150px;
+				transform: rotate(-166.49deg);
+
+				width: 175.91px;
+				height: 273.68px;
+			}
+			content: '';
+
+			position: absolute;
+			z-index: -1;
+			top: -50px;
+			right: -100px;
+			transform: rotate(-166.49deg);
+
+			width: 242.22px;
+			height: 376.85px;
+
+			background: conic-gradient(
+				from 180deg at 50% 50%,
+				#7362df 0deg,
+				#9e24e9 112.5deg,
+				#2e21c5 247.5deg,
+				#841cd7 345deg,
+				#7362df 360deg
+			);
+			filter: blur(92.5px);
+		}
+
+		&::before {
+			@include media-down(md) {
+				display: none;
+			}
+			content: '';
+
+			position: absolute;
+			top: -200px;
+			left: -200px;
+			transform: rotate(139.69deg);
+
+			width: 367px;
+			height: 571px;
+
+			background: #3d2abf;
+			filter: blur(92.5px);
+		}
+	}
+
 	&__content {
 		@include adaptive-value-between(height, 60, 35, md, xs);
 

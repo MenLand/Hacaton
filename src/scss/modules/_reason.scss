@@ -15,6 +15,43 @@
 			width: 320px;
 			height: 1029px;
 		}
+		position: relative;
+
+		&::before {
+			@include media-down(xl) {
+				top: 130px;
+
+				width: 298.46px;
+				height: 464.36px;
+
+				filter: blur(75.2254px);
+			}
+
+			@include media-down(md) {
+				transform: rotate(148.3deg);
+
+				width: 169.72px;
+				height: 264.06px;
+
+				filter: blur(58.9268px);
+			}
+			content: '';
+
+			position: absolute;
+			z-index: -1;
+			top: -100px;
+			right: -50px;
+			transform: rotate(119.63deg);
+
+			width: 367px;
+			height: 571px;
+
+			/* Дополнительный 500 */
+
+			background: #3d2abf;
+			filter: blur(92.5px);
+			border-radius: 30%;
+		}
 	}
 
 	&__title {

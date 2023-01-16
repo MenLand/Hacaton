@@ -1,18 +1,12 @@
-import bph from 'breakpoint-helper';
-
-const instance = bph({
-	xs: '320px',
-	md: '768px',
-	xl: '1260px',
-});
+import { breakpointHelper } from './breakpoints';
 
 const getCurrentBreakpointSize = () => {
-	const breakpoints = instance.getBreakpoints();
+	const breakpoints = breakpointHelper.getBreakpoints();
 
 	return parseInt(
 		Object.entries(breakpoints)
 			.reverse()
-			.find(([name]) => instance.isMatching(name))[1]
+			.find(([name]) => breakpointHelper.isMatching(name))[1]
 	);
 };
 

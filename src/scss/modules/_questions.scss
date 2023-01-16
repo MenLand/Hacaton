@@ -1,11 +1,50 @@
 .questions {
+	&__container {
+		position: relative;
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			z-index: -1;
+			top: 100px;
+			left: -180px;
+			transform: rotate(-171.25deg);
+
+			width: 213.63px;
+			height: 332.38px;
+
+			/* Angular */
+
+			background: conic-gradient(
+				from 180deg at 50% 50%,
+				#7362df 0deg,
+				#f931d9 112.5deg,
+				#153dea 224.87deg,
+				#bc1cd7 360deg
+			);
+			filter: blur(70px);
+		}
+	}
+
 	// .questions__title
 	&__title {
+		@include media-down(xl) {
+			margin-bottom: 40px;
+		}
+
+		@include media-down(md) {
+			margin-bottom: 30px;
+		}
 		margin-bottom: 60px;
 	}
 
 	// .questions__wrapper
 	&__wrapper {
+		@include media-down(xl) {
+			row-gap: 20px;
+			column-gap: initial;
+		}
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
 		column-gap: 30px;
@@ -13,28 +52,20 @@
 
 	// .questions__left
 	&__left {
+		@include media-down(xl) {
+			grid-column: 12 span;
+		}
 		grid-column: 7 span;
 	}
 
 	// .questions__right
 	&__right {
+		@include media-down(xl) {
+			grid-column: 12 span;
+		}
 		position: relative;
 
 		grid-column: 5 span;
-	}
-
-	// .questions__image
-	&__image {
-		pointer-events: none;
-
-		position: absolute;
-		right: 64px;
-		bottom: -64px;
-
-		width: 594px;
-		height: 587px;
-
-		background: url('../../images/telegram.png') no-repeat;
 	}
 }
 
@@ -44,17 +75,17 @@
 
 	background: rgb(255 255 255 / 10%);
 	backdrop-filter: blur(25px);
+	border: 1px solid #fff;
 
 	/* White */
-
-	border: 1px solid #fff;
+	appearance: none;
 
 	&:not(:last-child) {
 		margin-bottom: 20px;
 	}
 
 	// .accordion--open
-	&--open {
+	&[open] {
 		#{$this}__inner {
 			display: block;
 		}
@@ -72,8 +103,15 @@
 
 	// .accordion__control
 	&__control {
+		@include media-down(md) {
+			padding: 25px 15px;
+		}
+		cursor: pointer;
+
 		display: flex;
-		justify-content: space-between;
+		column-gap: 10px;
+
+		// justify-content: space-between;
 
 		width: 100%;
 		padding: 30px;
@@ -82,10 +120,18 @@
 
 		background-color: transparent;
 		border-bottom: 1px solid #fff;
+
+		appearance: none;
 	}
 
 	// .accordion__title
 	&__title {
+		@include media-down(md) {
+			font-size: rem(18);
+		}
+
+		margin-right: auto;
+
 		font-size: rem(22);
 		font-weight: 500;
 		font-style: normal;
@@ -94,6 +140,14 @@
 
 	// .accordion__icon
 	&__icon {
+		@include media-down(md) {
+			width: 17px;
+			height: 17px;
+
+			background-image: url('../../images/questions/accordion-btn-sm.svg');
+		}
+		flex-shrink: 0;
+
 		width: 28px;
 		height: 28px;
 
@@ -104,6 +158,11 @@
 
 	// .accordion__inner
 	&__inner {
+		@include media-down(md) {
+			padding: 15px;
+
+			font-size: rem(15);
+		}
 		display: none;
 
 		padding: 30px;
@@ -121,14 +180,59 @@
 }
 
 .question-card {
+	position: relative;
+
 	background: rgb(255 255 255 / 10%);
 	backdrop-filter: blur(25px);
+
+	// .questions__image
+	&__image {
+		@include media-down(xl) {
+			right: -100px;
+		}
+
+		@include media-down(md) {
+			right: 0;
+			bottom: 30px;
+
+			width: 300px;
+			height: 300px;
+
+			background-image: url('../../images/questions/tg-sm.png');
+			background-repeat: no-repeat;
+			background-size: 100%;
+		}
+
+		@include media-down(sm) {
+			bottom: 0;
+			left: 0;
+		}
+		pointer-events: none;
+
+		position: absolute;
+		right: 64px;
+		bottom: -64px;
+
+		width: 594px;
+		height: 587px;
+
+		background: url('../../images/telegram.png') no-repeat;
+	}
 
 	/* White */
 
 	// .question-card__header
 	&__header {
-		@extend %border-card-header;
+		// @extend %border-card-header;
+
+		@include media-down(xl) {
+			height: 46px;
+			padding-left: 0;
+		}
+
+		@include media-down(md) {
+			height: 27px;
+		}
 		height: 46px;
 		padding-left: 0;
 	}
@@ -140,17 +244,49 @@
 
 	// .question-card__tg
 	&__tg {
-		@include border-card-header-image('../../images/questions/tg.svg');
+		@include media-down(md) {
+			width: 17px;
+			height: 14px;
+
+			background-size: contain;
+		}
 	}
 
 	// .question-card__content
 	&__content {
+		@include media-down(xl) {
+			max-width: 482px;
+		}
+		@include media-down(sm) {
+			margin-bottom: 175px;
+		}
+	}
+
+	&__inner {
 		@extend %border-card-content;
+		@include media-down(xl) {
+			padding: 40px 30px;
+		}
+
+		@include media-down(md) {
+			padding: 15px;
+		}
+
 		padding: 26px;
 	}
 
 	// .question-card__title
 	&__title {
+		@include media-down(xl) {
+			padding: 0;
+
+			text-align: left;
+		}
+		@include media-down(md) {
+			max-width: 265px;
+
+			font-size: rem(20);
+		}
 		margin-bottom: 20px;
 		padding: 0 10px;
 
@@ -165,6 +301,17 @@
 
 	// .question-card__subtitle
 	&__subtitle {
+		@include media-down(xl) {
+			margin: 0;
+
+			text-align: left;
+		}
+
+		@include media-down(md) {
+			max-width: 253px;
+
+			font-size: rem(15);
+		}
 		max-width: 350px;
 		margin: 0 auto;
 		margin-bottom: 265px;
@@ -179,18 +326,13 @@
 
 	// .question-card__button
 	&__button {
-		@include border-button($border-width: 14);
+		@include media-down(xl) {
+			margin-top: -1px;
+		}
+		z-index: -1;
+
 		width: 100%;
-		height: 87px;
 
-		font-size: rem(17);
-		font-weight: 500;
-		font-style: normal;
-		line-height: 140%;
-		color: #01061b;
-		text-transform: uppercase;
-		letter-spacing: 0.01em;
-
-		background-color: #fff;
+		outline-offset: -1px;
 	}
 }

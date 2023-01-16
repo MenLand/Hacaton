@@ -10,6 +10,37 @@
 		@include media-down(md) {
 			width: 320px;
 		}
+		position: relative;
+
+		&::before {
+			@include media-down(md) {
+				top: -140px;
+				left: -250px;
+
+				width: 321.06px;
+				height: 221.02px;
+
+				filter: blur(45px);
+			}
+			content: '';
+
+			position: absolute;
+			top: -200px;
+			left: -300px;
+			transform: rotate(75.62deg);
+
+			width: 475px;
+			height: 327px;
+
+			background: conic-gradient(
+				from 180deg at 50% 50%,
+				#7362df 0deg,
+				#f931d9 112.5deg,
+				#153dea 224.87deg,
+				#bc1cd7 360deg
+			);
+			filter: blur(110px);
+		}
 	}
 
 	&__title {
@@ -74,7 +105,7 @@
 
 	margin-left: 206px;
 
-	font-family: 'Menoe Grotesque Pro Regular', sans-serif;
+	font-family: $secondary-font;
 	font-size: rem(17);
 	font-weight: 500;
 	line-height: 140%;
@@ -85,45 +116,34 @@
 	backdrop-filter: blur(25px);
 
 	&__button-left {
+		position: relative;
+
 		padding: 1em 0;
 
 		color: inherit;
 
 		background-color: unset;
 		border: unset;
+		border-right: 1px solid #fff;
 	}
 
 	&__button-right {
+		@include media-down(xl) {
+			padding: 10px;
+
+			line-height: 49px;
+		}
+
 		@include media-down(md) {
-			border: 7px solid blue;
-			border-image: url('../../images/team/border-for-button.svg') 7;
+			padding: 7px;
+
+			line-height: 40px;
 		}
-		position: relative;
+		padding: 11px;
 
-		background-color: #fff;
-		background-clip: padding-box;
-		border: 10px solid blue;
-		border-image: url('../../images/team/border-for-button.svg') 10;
+		line-height: 39px;
 
-		&::after {
-			@include media-down(md) {
-				top: -7px;
-				left: -7px;
-
-				height: calc(100% + 14px);
-			}
-			content: '';
-
-			position: absolute;
-			top: -10px;
-			left: -10px;
-			transform-origin: center;
-
-			width: 1px;
-			height: calc(100% + 20px);
-
-			background-color: #fff;
-		}
+		outline: none;
 	}
 
 	&__button-left,
@@ -143,12 +163,8 @@
 		text-transform: uppercase;
 	}
 
-	&__circle {
-		@extend .border-card__circle;
-	}
-
 	&__content {
-		@extend .border-card__content;
+		@extend %border-card-content;
 		@include media-down(xl) {
 			font-size: rem(16);
 		}
@@ -158,6 +174,8 @@
 			font-size: rem(15);
 		}
 		padding: 25px 108px;
+
+		border-bottom: none;
 	}
 
 	&__footer {
@@ -166,15 +184,6 @@
 		margin-top: 0;
 
 		border: 1px solid #fff;
-		border-top: none;
-	}
-
-	&__header {
-		@extend .border-card__header;
-	}
-
-	&__label {
-		@extend .border-card__label;
 	}
 }
 
@@ -241,116 +250,112 @@
 		background: url('../../images/team/brain.png') no-repeat;
 	}
 
-	&__blur-1 {
-		@include media-down(xl) {
-			top: -40%;
-			left: 30%;
-			transform: rotate(-172.91deg);
+	// &__blur-1 {
+	// 	@include media-down(xl) {
+	// 		top: -40%;
+	// 		left: 30%;
+	// 		transform: rotate(-172.91deg);
 
-			width: 367px;
-			height: 571px;
+	// 		width: 367px;
+	// 		height: 571px;
 
-			background: conic-gradient(
-				from 180deg at 50% 50%,
-				#7362df 0deg,
-				#9e24e9 112.5deg,
-				#2e21c5 247.5deg,
-				#841cd7 345deg,
-				#7362df 360deg
-			);
-			filter: blur(92.5px);
-		}
+	// 		background: conic-gradient(
+	// 			from 180deg at 50% 50%,
+	// 			#7362df 0deg,
+	// 			#9e24e9 112.5deg,
+	// 			#2e21c5 247.5deg,
+	// 			#841cd7 345deg,
+	// 			#7362df 360deg
+	// 		);
+	// 		filter: blur(92.5px);
+	// 	}
 
-		@include media-down(md) {
-			position: absolute;
-			top: -30%;
-			left: 10%;
-			transform: rotate(-158.98deg);
+	// 	@include media-down(md) {
+	// 		position: absolute;
+	// 		top: -30%;
+	// 		left: 10%;
+	// 		transform: rotate(-158.98deg);
 
-			width: 238.04px;
-			height: 350.94px;
+	// 		width: 238.04px;
+	// 		height: 350.94px;
 
-			background: conic-gradient(
-				from 180deg at 50% 50%,
-				#7362df 0deg,
-				#9e24e9 112.5deg,
-				#2e21c5 247.5deg,
-				#841cd7 345deg,
-				#7362df 360deg
-			);
-			filter: blur(59.9957px);
-		}
-		position: absolute;
-		top: -65%;
-		left: 50%;
-		transform: matrix(0.7, -0.63, 0.83, 0.69, 0, 0) translate(-50%);
+	// 		background: conic-gradient(
+	// 			from 180deg at 50% 50%,
+	// 			#7362df 0deg,
+	// 			#9e24e9 112.5deg,
+	// 			#2e21c5 247.5deg,
+	// 			#841cd7 345deg,
+	// 			#7362df 360deg
+	// 		);
+	// 		filter: blur(59.9957px);
+	// 	}
+	// 	position: absolute;
+	// 	top: -65%;
+	// 	left: 50%;
+	// 	transform: matrix(0.7, -0.63, 0.83, 0.69, 0, 0) translate(-50%);
 
-		width: 261px;
-		height: 432px;
+	// 	width: 261px;
+	// 	height: 432px;
 
-		background: #db53a5;
-		filter: blur(114.792px);
-	}
+	// 	background: #db53a5;
+	// 	filter: blur(114.792px);
+	// }
 
-	&__blur-2 {
-		@include media-down(xl) {
-			display: none;
-		}
-		position: absolute;
-		top: 0;
-		left: 10%;
-		transform: matrix(0.96, -0.38, 0.25, 0.93, 0, 0);
+	// &__blur-2 {
+	// 	@include media-down(xl) {
+	// 		display: none;
+	// 	}
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 10%;
+	// 	transform: matrix(0.96, -0.38, 0.25, 0.93, 0, 0);
 
-		width: 143px;
-		height: 209px;
+	// 	width: 143px;
+	// 	height: 209px;
 
-		background: #df9662;
-		filter: blur(114.792px);
-	}
+	// 	background: #df9662;
+	// 	filter: blur(114.792px);
+	// }
 
-	&__blur-3 {
-		@include media-down(xl) {
-			display: none;
-		}
-		position: absolute;
-		right: 10%;
-		bottom: -20%;
-		transform: matrix(0.7, -0.63, 0.83, 0.69, 0, 0);
+	// &__blur-3 {
+	// 	@include media-down(xl) {
+	// 		display: none;
+	// 	}
+	// 	position: absolute;
+	// 	right: 10%;
+	// 	bottom: -20%;
+	// 	transform: matrix(0.7, -0.63, 0.83, 0.69, 0, 0);
 
-		width: 255px;
-		height: 227px;
+	// 	width: 255px;
+	// 	height: 227px;
 
-		background: #5371db;
-		filter: blur(68.8752px);
-	}
+	// 	background: #5371db;
+	// 	filter: blur(68.8752px);
+	// }
 
-	&__blur-4 {
-		@include media-down(xl) {
-			display: none;
-		}
-		position: absolute;
-		top: 30%;
-		left: 20%;
-		transform: matrix(0.87, 0.61, -0.43, 0.84, 0, 0);
-		transform-origin: center;
+	// &__blur-4 {
+	// 	@include media-down(xl) {
+	// 		display: none;
+	// 	}
+	// 	position: absolute;
+	// 	top: 30%;
+	// 	left: 20%;
+	// 	transform: matrix(0.87, 0.61, -0.43, 0.84, 0, 0);
+	// 	transform-origin: center;
 
-		width: 329px;
-		height: 322px;
+	// 	width: 329px;
+	// 	height: 322px;
 
-		background: linear-gradient(180deg, #db53a5 0%, #1082e7 100%);
-		filter: blur(114.792px);
-	}
+	// 	background: linear-gradient(180deg, #db53a5 0%, #1082e7 100%);
+	// 	filter: blur(114.792px);
+	// }
 }
 
 .team-card {
-	font-family: 'Menoe Grotesque Pro Regular', sans-serif;
-
-	&__circle {
-		@extend .border-card__circle;
-	}
+	font-family: $secondary-font;
 
 	&__content {
-		@extend .border-card__content;
+		@extend %border-card-content;
 		@include media-down(xl) {
 			padding-bottom: 40px;
 		}
@@ -359,10 +364,6 @@
 			padding: 20px;
 			padding-bottom: 30px;
 		}
-	}
-
-	&__header {
-		@extend .border-card__header;
 	}
 
 	&__item {
@@ -391,10 +392,6 @@
 			background: url('../../images/team/list-marker.svg') left center
 				no-repeat;
 		}
-	}
-
-	&__label {
-		@extend .border-card__label;
 	}
 
 	&__list {

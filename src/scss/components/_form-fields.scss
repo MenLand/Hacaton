@@ -1,7 +1,29 @@
-%field-control {
-	display: flex;
-	flex-direction: column;
-	row-gap: 10px;
+%form-control {
+	@include media-down(md) {
+		font-size: rem(15);
+	}
+	cursor: pointer;
+
+	height: rem(62);
+
+	font-family: $secondary-font;
+	font-size: rem(17);
+	color: #fff;
+
+	background-color: rgb(255 255 255 / 10%);
+	backdrop-filter: blur(25px);
+	border: 1px solid #fff;
+}
+
+.form-label {
+	@include media-down(md) {
+		font-size: rem(13);
+	}
+	cursor: pointer;
+
+	display: inline-block;
+
+	margin-bottom: rem(10);
 
 	font-family: $secondary-font;
 	font-size: rem(15);
@@ -9,146 +31,143 @@
 	font-style: normal;
 	line-height: 140%;
 	color: #fff;
-}
 
-%field-input {
-	height: rem(62);
-	padding: 20px;
+	&--tooltip {
+		&::after {
+			content: '';
 
-	color: #fff;
+			display: inline-block;
 
-	background: rgb(255 255 255 / 10%);
-	backdrop-filter: blur(25px);
+			width: 15px;
+			height: 15px;
 
-	/* White */
+			vertical-align: middle;
 
-	border: 1px solid #fff;
-}
-
-.select-field {
-	$this: &;
-	@extend %field-control;
-
-	// .select-field__label
-	&__label {
-		cursor: pointer;
-	}
-
-	// .select-field__input
-	&__input {
-		@extend %field-input;
-	}
-
-	&--attach {
-		position: relative;
-
-		#{$this}__input {
-			&::after {
-				cursor: pointer;
-				content: '';
-
-				position: absolute;
-				top: 0;
-				right: 0;
-
-				width: 55px;
-				height: 100%;
-
-				background-image: url('../../images/form/bottom-arrow.svg');
-				background-repeat: no-repeat;
-				background-position: center;
-			}
+			background: url('../../images/form/question.svg') center / contain
+				no-repeat;
 		}
 	}
 }
 
-.input-field {
-	@extend %field-control;
+.form-input {
+	@extend %form-control;
+	cursor: auto;
 
-	// .input-field__label
-	&__label {
-		cursor: pointer;
-
-		&--tip {
-			&::after {
-				content: '';
-
-				display: inline-block;
-
-				width: 20px;
-				height: 20px;
-
-				vertical-align: top;
-
-				background-image: url('../../images/form/question.svg');
-				background-repeat: no-repeat;
-				background-position: center;
-			}
-		}
-	}
-
-	// .input-field__input
-	&__input {
-		@extend %field-input;
-	}
+	width: 100%;
+	padding-right: rem(20);
+	padding-left: rem(20);
 }
 
-.attach-field {
-	$this: &;
-	@extend %field-control;
+.button-group {
+	position: relative;
 
-	// .attach-field__label
-	&__label {
-		cursor: pointer;
-	}
+	display: flex;
 
-	// .attach-field__input
-	&__input {
-		@extend %field-input;
-	}
+	& > label {
+		flex-grow: 1;
 
-	&--attach {
-		position: relative;
-
-		.attach-field__input {
-			&::after {
-				cursor: pointer;
-				content: '';
-
-				position: absolute;
-				top: 0;
-				right: 0;
-
-				width: 55px;
-				height: 100%;
-
-				background-image: url('../../images/form/attach.svg');
-				background-repeat: no-repeat;
-				background-position: center;
-			}
-		}
+		width: 100%;
 	}
 }
 
 .form-button {
-	padding: 20px 0;
+	@extend %form-control;
 
-	font-size: rem(15);
-	font-weight: 500;
-	font-style: normal;
-	line-height: 140%;
-	color: #fff;
+	@include media-down(xl) {
+		font-size: rem(15);
+	}
+	cursor: pointer;
 
-	background: rgb(255 255 255 / 10%);
-	backdrop-filter: blur(25px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-	/* White */
+	text-align: center;
+}
 
-	border: 1px solid #fff;
+.button-check {
+	pointer-events: none;
 
-	&--emphasized {
+	position: absolute;
+
+	clip: rect(0, 0, 0, 0);
+
+	&:checked + .form-button {
+		position: relative;
+		z-index: 1;
+
 		color: #01061b;
 
-		background: #fff;
+		background-color: #fff;
+
+		transition: background-color 0.3s;
+	}
+
+	&:checked:focus + .form-button {
+		outline: 1px solid white;
+	}
+}
+
+.form-select {
+	@extend %form-control;
+	cursor: pointer;
+
+	position: relative;
+
+	display: block;
+
+	width: 100%;
+	padding-right: rem(20);
+	padding-left: rem(20);
+
+	background-image: url('../../images/form/bottom-arrow.svg');
+	background-repeat: no-repeat;
+	background-position: right 20px center;
+
+	appearance: none;
+
+	&::-ms-expand {
+		display: none;
+	}
+
+	& > option {
+		background-color: $background-color;
+	}
+}
+
+.form-file {
+	position: relative;
+
+	&__input {
+		pointer-events: none;
+
+		position: absolute;
+
+		width: 0;
+
+		clip: rect(0, 0, 0, 0);
+
+		&:focus + .form-file__name {
+			outline: 1px solid white;
+		}
+	}
+
+	&__name {
+		@extend %form-control;
+		cursor: pointer;
+
+		overflow: hidden;
+		display: block;
+
+		padding-right: 60px;
+		padding-left: 20px;
+
+		line-height: 62px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		background-image: url('../../images/form/attach.svg');
+		background-repeat: no-repeat;
+		background-position: right 20px center;
 	}
 }

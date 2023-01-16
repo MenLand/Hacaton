@@ -1,74 +1,90 @@
-<section class="form-section container html__form-section">
-	<h2 class="title form-section__title title--over">
-		Leave a&nbsp;request for participation
-	</h2>
-	<div class="form-section__attention-wrapper">
-		<span class="form-section__attention-text">
-			The application must be&nbsp;filled out by&nbsp;each team member
-		</span>
-		<div class="form-section__attention-element"></div>
-	</div>
-	<form class="form-section__form form">
-		<div class="form-section__row">
-			<div class="form-section__column">
-				<label class="input-field">
-					<span class="input-field__label">Your full name</span>
-					<input type="text" class="input-field__input" />
-				</label>
+<section class="form-section html__form-section">
+	<div class="container form-section__container">
+		<h2 class="title form-section__title title--over">
+			Leave&nbsp;a request for participation
+		</h2>
+		<div class="form-section__attention-wrapper">
+			<span class="form-section__attention-text">
+				The application must be&nbsp;filled out by&nbsp;each team member
+			</span>
+			<div class="form-section__attention-element"></div>
+		</div>
+		<form data-form id="form" class="form-section__form form">
+			<div class="form-group">
+				<label for="full_name" class="form-label">Your full name</label>
+				<input
+					id="full_name"
+					class="form-input"
+					type="text"
+					autocomplete="name" />
 			</div>
-			<div class="form-section__column">
-				<div class="form-section__control-wrapper">
-					<span class="form-section__buttons-label">Team</span>
-					<div class="form-section__buttons-wrapper">
-						<button
-							type="button"
-							class="form-section__button form-button form-button--emphasized">
-							I have a team*
-						</button>
-						<button
-							type="button"
-							class="form-section__button form-button">
-							I don’t have a team
-						</button>
-					</div>
+			<div class="form-group">
+				<label for="" class="form-label">Team</label>
+				<div class="button-group">
+					<input
+						id="team1"
+						type="radio"
+						class="button-check"
+						name="team"
+						value="yes"
+						checked />
+					<label for="team1" class="form-button">
+						I have a team*
+					</label>
+					<input
+						id="team2"
+						type="radio"
+						class="button-check"
+						value="no"
+						name="team" />
+					<label for="team2" class="form-button">
+						I don’t have a team
+					</label>
 				</div>
 			</div>
-		</div>
-		<div class="form-section__row">
-			<div class="form-section__column">
-				<label class="select-field select-field--attach">
-					<span class="select-field__label">Select a task</span>
-					<div class="select-field__input"></div>
-				</label>
+			<div class="form-group">
+				<label for="task" class="form-label">Select a task</label>
+				<select class="form-select" name="task" id="task">
+					<option selected value="frontend">Frontend</option>
+					<option value="backend">Backend</option>
+					<option value="design">Design</option>
+				</select>
 			</div>
-			<div class="form-section__column">
-				<label class="input-field">
-					<span class="input-field__label input-field__label--tip">
-						Your team name
-					</span>
-					<input type="text" class="input-field__input" />
+			<div class="form-group">
+				<label for="team-name" class="form-label form-label--tooltip">
+					Your team name
 				</label>
+				<input id="team-name" type="text" class="form-input" />
 			</div>
-		</div>
-		<div class="form-section__row">
-			<div class="form-section__column">
-				<label class="attach-field attach-field--attach">
-					<span class="attach-field__label">Attach your CV</span>
-					<div class="attach-field__input"></div>
-				</label>
+			<div class="form-group">
+				<label for="cv" class="form-label">Attach your CV</label>
+				<div class="form-file">
+					<input id="cv" class="form-file__input" type="file" />
+					<label
+						for="cv"
+						title="Choose file"
+						class="form-file__name"></label>
+				</div>
 			</div>
-			<div class="form-section__column">
-				<label class="input-field">
-					<span class="input-field__label">Your phone number</span>
-					<input type="text" class="input-field__input" />
-				</label>
+			<div class="form-group">
+				<label for="phone" class="form-label">Your phone number</label>
+				<input
+					id="phone"
+					autocomplete="tel"
+					placeholder="+7(499)666-55-44"
+					type="tel"
+					class="form-input" />
 			</div>
-		</div>
 
-		<div class="form__button-wrapper">
-			<button type="button" class="form-section__action">
+			<button
+				form="form"
+				data-form-btn
+				type="button"
+				class="border-button form-section__action">
+				<div class="border-button__decor-right"></div>
+				<div class="border-button__decor-left"></div>
 				Leave a request
 			</button>
-		</div>
-	</form>
+		</form>
+	</div>
 </section>
