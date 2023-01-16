@@ -1,3 +1,9 @@
-// import './helpers/zoom-factor';
+import './helpers/zoom-factor';
 
-var s = 'ddd';
+import './menu';
+import './running-line';
+import './footer';
+import './form';
+import './jury';
+import './questions';
+import './timeline';
