@@ -63,6 +63,7 @@ exports.default = series(
 
 exports.build = series(
 	clean,
+	font,
 	htmlInclude,
 	style,
 	javascript,
