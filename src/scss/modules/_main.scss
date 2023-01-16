@@ -38,6 +38,10 @@
 		line-height: 110%;
 		text-align: center;
 		letter-spacing: -0.03em;
+
+		@supports (-moz-appearance: none) {
+			letter-spacing: -0.05em;
+		}
 	}
 
 	&__wrapper {

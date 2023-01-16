@@ -5,7 +5,7 @@
 	"main": "gulpfile.js",
 	"scripts": {
 		"dev": "gulp",
-		"production": "gulp build --production",
+		"build": "gulp build --production",
 		"html": "node-w3c-validator -f lint -evH -i build/**/*.html",
 		"clean": "gulp clean"
 	},
