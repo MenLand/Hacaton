@@ -23,8 +23,7 @@
 		padding-bottom: math.percentage(math.div($image-height, $image-width));
 
 		&--smile {
-			background: url('../../images/images2/smile.png') 0 / contain
-				no-repeat;
+			background: url('../images/images2/smile.png') 0 / contain no-repeat;
 		}
 
 		&--dolar {
