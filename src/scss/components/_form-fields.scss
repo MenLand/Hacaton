@@ -43,7 +43,7 @@
 
 			vertical-align: middle;
 
-			background: url('images/form/question.svg') center / contain
+			background: url('../images/form/question.svg') center / contain
 				no-repeat;
 		}
 	}
@@ -120,7 +120,7 @@
 	padding-right: rem(20);
 	padding-left: rem(20);
 
-	background-image: url('images/form/bottom-arrow.svg');
+	background-image: url('../images/form/bottom-arrow.svg');
 	background-repeat: no-repeat;
 	background-position: right 20px center;
 
@@ -166,7 +166,7 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
-		background-image: url('images/form/attach.svg');
+		background-image: url('../images/form/attach.svg');
 		background-repeat: no-repeat;
 		background-position: right 20px center;
 	}

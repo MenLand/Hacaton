@@ -251,10 +251,10 @@
 // ------------------ Header Icons ---------------------
 .border-card-header-tg {
 	@extend %header-icon;
-	background-image: url('images/questions/tg.svg');
+	background-image: url('../images/questions/tg.svg');
 }
 
 .border-card-header-planet {
 	@extend %header-icon;
-	background-image: url('images/jury/planet.svg');
+	background-image: url('../images/jury/planet.svg');
 }

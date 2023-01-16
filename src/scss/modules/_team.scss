@@ -205,17 +205,17 @@
 
 	&__border {
 		@include media-down(xl) {
-			background: url('images/team/border-for-brain-md.svg') no-repeat;
+			background: url('../images/team/border-for-brain-md.svg') no-repeat;
 		}
 
 		@include media-down(md) {
-			background: url('images/team/border-for-brain-xs.svg') no-repeat;
+			background: url('../images/team/border-for-brain-xs.svg') no-repeat;
 		}
 		position: relative;
 
 		height: 100%;
 
-		background: url('images/team/border-for-brain.svg') no-repeat;
+		background: url('../images/team/border-for-brain.svg') no-repeat;
 	}
 
 	&__image {
@@ -227,7 +227,7 @@
 			width: 600px;
 			height: 500px;
 
-			background: url('images/team/brain-md.png') center no-repeat;
+			background: url('../images/team/brain-md.png') center no-repeat;
 		}
 
 		@include media-down(md) {
@@ -245,7 +245,7 @@
 		width: 923px;
 		height: 1023px;
 
-		background: url('images/team/brain.png') no-repeat;
+		background: url('../images/team/brain.png') no-repeat;
 	}
 
 	// &__blur-1 {
@@ -376,7 +376,7 @@
 
 		&::before {
 			@include media-down(md) {
-				background: url('images/team/list-marker.svg') left 6px
+				background: url('../images/team/list-marker.svg') left 6px
 					no-repeat;
 			}
 			content: '';
@@ -387,7 +387,8 @@
 			width: 30px;
 			height: 100%;
 
-			background: url('images/team/list-marker.svg') left center no-repeat;
+			background: url('../images/team/list-marker.svg') left center
+				no-repeat;
 		}
 	}
 

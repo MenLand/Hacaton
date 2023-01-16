@@ -76,7 +76,7 @@
 			width: 30px;
 			height: 30px;
 
-			background-image: url('images/form/required.svg');
+			background-image: url('../images/form/required.svg');
 			background-repeat: no-repeat;
 			background-position: center right;
 			background-size: cover;
@@ -117,7 +117,7 @@
 
 		border-style: solid;
 		border-width: 25px;
-		border-image: url('images/form-border.svg') 25;
+		border-image: url('../images/form-border.svg') 25;
 	}
 
 	// .form-section__control-wrapper
