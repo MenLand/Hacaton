@@ -21,10 +21,10 @@
 	}
 
 	&__list {
-		@include adaptive-value-between(column-gap, 25, 10, xl, lg);
+		@include adaptive-value-between(column-gap, 50, 10, xl, lg);
 		display: flex;
 		flex-direction: row;
-		column-gap: rem(25);
+		column-gap: rem(50);
 
 		@at-root .menu & {
 			@include adaptive-value-between(row-gap, 40, 10, md, xs);
