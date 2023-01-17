@@ -13,5 +13,5 @@
 		"keyframes-name-pattern": null,
 		"scss/dollar-variable-pattern": null
 	},
-	"ignoreFiles": ["**/*.js", "**/*.html", "/node_modules"]
+	"ignoreFiles": ["**/*.js", "**/*.html", "/node_modules", "/build"]
 }

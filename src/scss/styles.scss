@@ -44,8 +44,11 @@ body {
 
 .disable-scroll {
 	position: fixed;
+	top: 0;
+	left: 0;
 
 	overflow: hidden;
+	overscroll-behavior: none;
 
 	width: 100%;
 	height: 100vh;
