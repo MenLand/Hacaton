@@ -1,0 +1,68 @@
+.nav-menu {
+	$gap-between: 50px;
+
+	@include media-down(lg) {
+		display: none;
+	}
+	text-transform: uppercase;
+
+	@at-root .menu & {
+		@include adaptive-value-between(padding-bottom, 147, 23, md, xs);
+
+		@include media-down(md) {
+			margin-bottom: 18px;
+		}
+		display: block;
+
+		margin-bottom: 30px;
+		padding-bottom: 147px;
+
+		border-bottom: 1px solid rgb(255 255 255 / 20%);
+	}
+
+	&__list {
+		@include adaptive-value-between(column-gap, 25, 10, xl, lg);
+		display: flex;
+		flex-direction: row;
+		column-gap: rem(25);
+
+		@at-root .menu & {
+			@include adaptive-value-between(row-gap, 40, 10, md, xs);
+			@include adaptive-value-between(column-gap, 50, 10, md, xs);
+			flex-wrap: wrap;
+			row-gap: rem(40);
+			column-gap: $gap-between;
+		}
+	}
+
+	&__item {
+		@at-root .menu & {
+			@include adaptive-value-between(font-size, 34, 18, md, xs);
+			@include adaptive-value-between(padding-left, 25, 20, md, xs);
+
+			@include media-down(md) {
+				background-size: 10px;
+			}
+
+			flex-basis: calc(50% - $gap-between / 2);
+
+			min-width: rem(255);
+			padding-left: 25px;
+
+			font-family: $main-font;
+			font-size: rem(34);
+			font-weight: 400;
+			font-style: normal;
+			line-height: 105%;
+			letter-spacing: -0.03em;
+
+			background-image: url('../images/header/list-style.svg');
+			background-repeat: no-repeat;
+			background-position: left center;
+		}
+	}
+
+	&__item > a {
+		color: inherit;
+	}
+}

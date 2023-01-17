@@ -12,28 +12,31 @@
 		<script defer src="js/main.min.js"></script>
 	</head>
 	<body>
-		@@include("./html/header.html")
-		<main>
-			@@include("./html/main.html") @@include("./html/images.html")
-			@@include("./html/reason.html") @@include("./html/team.html")
-			@@include("./html/running-line.html") @@include("./html/tasks.html")
-			<!-- Timeline -->
-			@@include("./html/timeline.html")
-			<!-- Jury -->
-			@@include("./html/jury.html")
-			<!-- Images2 -->
-			@@include("./html/images2.html")
-			<!-- Form -->
-			@@include("./html/form.html")
-			<!-- Questions -->
-			@@include("./html/questions.html")
-		</main>
+		<div class="content">
+			@@include("./html/header.html")
+			<main>
+				@@include("./html/main.html") @@include("./html/images.html")
+				@@include("./html/reason.html") @@include("./html/team.html")
+				@@include("./html/running-line.html")
+				@@include("./html/tasks.html")
+				<!-- Timeline -->
+				@@include("./html/timeline.html")
+				<!-- Jury -->
+				@@include("./html/jury.html")
+				<!-- Images2 -->
+				@@include("./html/images2.html")
+				<!-- Form -->
+				@@include("./html/form.html")
+				<!-- Questions -->
+				@@include("./html/questions.html")
+			</main>
 
-		<div class="footer-image">
-			<!-- Partners -->
-			@@include("./html/partners.html")
-			<!-- Footer -->
-			@@include("./html/footer.html")
+			<div class="footer-image">
+				<!-- Partners -->
+				@@include("./html/partners.html")
+				<!-- Footer -->
+				@@include("./html/footer.html")
+			</div>
 		</div>
 	</body>
 </html>

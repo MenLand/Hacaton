@@ -1,22 +1,20 @@
-const burgerMenu = document.querySelector('[data-burger]');
-const menu = document.querySelector('[data-menu]');
-const header = document.querySelector('[data-header]');
-const navList = document.querySelector('[data-nav]').cloneNode(true);
+const burgerMenuHTML = document.querySelector('[data-burger]');
+// const menu = document.querySelector('[data-menu]');
+// const header = document.querySelector('[data-header]');
+const navListHTML = document.querySelector('[data-nav]').cloneNode(true);
+const menuContentHTML = document.querySelector('.menu__content');
 
-burgerMenu.addEventListener('click', ({ currentTarget }) => {
+burgerMenuHTML.addEventListener('click', ({ currentTarget }) => {
 	currentTarget.classList.toggle('burger--active');
 
-	menu.classList.toggle('menu--active');
-
-	if (currentTarget.classList.contains('burger--active')) {
-		menu.querySelector('.menu__content').insertAdjacentElement(
-			'afterbegin',
-			navList
-		);
+	const isMenuOpened = currentTarget.classList.contains('burger--active');
+	// 	menu.classList.toggle('menu--active');
+	if (isMenuOpened) {
+		menuContentHTML.replaceWith(navListHTML);
 	} else {
-		menu.querySelector('.menu__content').removeChild(navList);
+		navListHTML.replaceWith(menuContentHTML);
+		// document.querySelector('.menu__content').removeChild(navList);
 	}
-
 	document.body.classList.toggle('disable-scroll');
 	document.body.classList.toggle('menu--opened');
 });

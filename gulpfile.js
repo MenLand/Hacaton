@@ -20,21 +20,21 @@ const watcher = () => {
 		server: {
 			baseDir: paths.buildFolder,
 		},
-		snippetOptions: {
-			rule: {
-				match: /<\/head>/i,
-				fn: function (snippet) {
-					return (
-						snippet +
-						String(
-							fs.readFileSync(
-								'./browserSyncSnippets/scroller.html'
-							)
-						)
-					);
-				},
-			},
-		},
+		// snippetOptions: {
+		// 	rule: {
+		// 		match: /<\/head>/i,
+		// 		fn: function (snippet) {
+		// 			return (
+		// 				snippet +
+		// 				String(
+		// 					fs.readFileSync(
+		// 						'./browserSyncSnippets/scroller.html'
+		// 					)
+		// 				)
+		// 			);
+		// 		},
+		// 	},
+		// },
 	});
 
 	watch(`${paths.srcFolder}/scss/**/*.scss`, style);

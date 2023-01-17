@@ -1,0 +1,105 @@
+.menu {
+	@include media-down(md) {
+		padding-bottom: 15px;
+	}
+	position: relative;
+
+	display: none;
+
+	padding-bottom: 30px;
+
+	&::before {
+		@include media-only(md) {
+			content: '';
+
+			position: absolute;
+			z-index: -1;
+			bottom: 200px;
+			left: -300px;
+			transform: rotate(-90deg);
+
+			width: 475px;
+			height: 327px;
+
+			background: #3d2abf;
+			filter: blur(110px);
+		}
+	}
+
+	&__button {
+		flex-shrink: 0;
+
+		margin-top: auto;
+	}
+
+	&__title > img {
+		height: 100%;
+	}
+
+	&__title {
+		@include adaptive-value-between(margin-top, 47, 20, md, xs);
+		@include adaptive-value-between(margin-bottom, 60, 20, md, xs);
+
+		display: flex;
+		justify-content: center;
+
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	&__questions {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__text {
+		@include adaptive-value-between(max-width, 1000, 428, xl, md);
+		@include adaptive-value-between(max-width, 428, 255, md, xs);
+		@include adaptive-value-between(font-size, 36, 18, md, xs);
+
+		@include media-down(md) {
+			margin-bottom: 24px;
+		}
+		margin-bottom: 30px;
+
+		font-family: $main-font;
+		font-size: rem(36);
+		font-weight: 400;
+		font-style: normal;
+		line-height: 135%;
+		text-transform: uppercase;
+		letter-spacing: -0.05em;
+	}
+
+	&__image {
+		@include adaptive-value-between(width, 300, 150, md, xs);
+		@include adaptive-value-between(height, 300, 150, md, xs);
+		@include adaptive-value-between(bottom, -50, -31, md, xs);
+
+		pointer-events: none;
+
+		position: absolute;
+		right: 0;
+		bottom: -50px;
+		transform: scale(1.9);
+
+		width: 300px;
+		height: 300px;
+
+		background-image: url('../images/telegram.png');
+		background-image: image-set(
+			'../images/telegram.avif' type('image/avif'),
+			'../images/telegram.webp' type('image/webp'),
+			'../images/telegram.png'
+		);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	@at-root .menu--opened & {
+		display: flex;
+		flex-direction: column;
+
+		height: 100%;
+	}
+}
