@@ -39,7 +39,8 @@
 		text-align: center;
 		letter-spacing: -0.03em;
 
-		@supports (-moz-appearance: none) {
+		.safari &,
+		.firefox & {
 			letter-spacing: -0.05em;
 		}
 	}
