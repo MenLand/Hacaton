@@ -39,7 +39,7 @@
 				#153dea 224.87deg,
 				#bc1cd7 360deg
 			);
-			filter: blur(110px);
+			filter: blur(75px);
 		}
 	}
 
@@ -247,106 +247,6 @@
 
 		background: url('../images/team/brain.png') no-repeat;
 	}
-
-	// &__blur-1 {
-	// 	@include media-down(xl) {
-	// 		top: -40%;
-	// 		left: 30%;
-	// 		transform: rotate(-172.91deg);
-
-	// 		width: 367px;
-	// 		height: 571px;
-
-	// 		background: conic-gradient(
-	// 			from 180deg at 50% 50%,
-	// 			#7362df 0deg,
-	// 			#9e24e9 112.5deg,
-	// 			#2e21c5 247.5deg,
-	// 			#841cd7 345deg,
-	// 			#7362df 360deg
-	// 		);
-	// 		filter: blur(92.5px);
-	// 	}
-
-	// 	@include media-down(md) {
-	// 		position: absolute;
-	// 		top: -30%;
-	// 		left: 10%;
-	// 		transform: rotate(-158.98deg);
-
-	// 		width: 238.04px;
-	// 		height: 350.94px;
-
-	// 		background: conic-gradient(
-	// 			from 180deg at 50% 50%,
-	// 			#7362df 0deg,
-	// 			#9e24e9 112.5deg,
-	// 			#2e21c5 247.5deg,
-	// 			#841cd7 345deg,
-	// 			#7362df 360deg
-	// 		);
-	// 		filter: blur(59.9957px);
-	// 	}
-	// 	position: absolute;
-	// 	top: -65%;
-	// 	left: 50%;
-	// 	transform: matrix(0.7, -0.63, 0.83, 0.69, 0, 0) translate(-50%);
-
-	// 	width: 261px;
-	// 	height: 432px;
-
-	// 	background: #db53a5;
-	// 	filter: blur(114.792px);
-	// }
-
-	// &__blur-2 {
-	// 	@include media-down(xl) {
-	// 		display: none;
-	// 	}
-	// 	position: absolute;
-	// 	top: 0;
-	// 	left: 10%;
-	// 	transform: matrix(0.96, -0.38, 0.25, 0.93, 0, 0);
-
-	// 	width: 143px;
-	// 	height: 209px;
-
-	// 	background: #df9662;
-	// 	filter: blur(114.792px);
-	// }
-
-	// &__blur-3 {
-	// 	@include media-down(xl) {
-	// 		display: none;
-	// 	}
-	// 	position: absolute;
-	// 	right: 10%;
-	// 	bottom: -20%;
-	// 	transform: matrix(0.7, -0.63, 0.83, 0.69, 0, 0);
-
-	// 	width: 255px;
-	// 	height: 227px;
-
-	// 	background: #5371db;
-	// 	filter: blur(68.8752px);
-	// }
-
-	// &__blur-4 {
-	// 	@include media-down(xl) {
-	// 		display: none;
-	// 	}
-	// 	position: absolute;
-	// 	top: 30%;
-	// 	left: 20%;
-	// 	transform: matrix(0.87, 0.61, -0.43, 0.84, 0, 0);
-	// 	transform-origin: center;
-
-	// 	width: 329px;
-	// 	height: 322px;
-
-	// 	background: linear-gradient(180deg, #db53a5 0%, #1082e7 100%);
-	// 	filter: blur(114.792px);
-	// }
 }
 
 .team-card {

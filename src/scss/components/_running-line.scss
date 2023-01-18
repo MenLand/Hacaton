@@ -40,7 +40,7 @@
 				#841cd7 345deg,
 				#7362df 360deg
 			);
-			filter: blur(92.5px);
+			filter: blur(79px);
 		}
 
 		&::before {
@@ -50,6 +50,7 @@
 			content: '';
 
 			position: absolute;
+			z-index: -1;
 			top: -200px;
 			left: -200px;
 			transform: rotate(139.69deg);
@@ -58,7 +59,7 @@
 			height: 571px;
 
 			background: #3d2abf;
-			filter: blur(92.5px);
+			filter: blur(79px);
 		}
 	}
 

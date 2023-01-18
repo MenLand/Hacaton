@@ -28,7 +28,7 @@
 				#841cd7 345deg,
 				#7362df 360deg
 			);
-			filter: blur(92.5px);
+			filter: blur(79px);
 		}
 	}
 }
@@ -121,7 +121,6 @@
 	line-height: 145%;
 
 	&--hackathon {
-
 		@include media-down(md) {
 			width: 300px;
 		}
