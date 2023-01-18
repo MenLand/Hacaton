@@ -10,10 +10,10 @@ const cloneTextFromLine = () => {
 };
 cloneTextFromLine();
 
-window.addEventListener('load', () => {
-	runningLines.forEach((runningLine) => {
-		Array.from(runningLine.children).forEach((el) => {
-			el.classList.add('--animate');
-		});
+// window.addEventListener('load', () => {
+runningLines.forEach((runningLine) => {
+	Array.from(runningLine.children).forEach((el) => {
+		el.classList.add('--animate');
 	});
 });
+// });

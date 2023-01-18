@@ -22,12 +22,25 @@
 	&__picture {
 		padding-bottom: math.percentage(math.div($image-height, $image-width));
 
+		background-repeat: no-repeat;
+		background-size: contain;
+
 		&--smile {
-			background: url('../images/images2/smile.png') 0 / contain no-repeat;
+			background-image: url('../images/images2/smile.png');
+			background-image: image-set(
+				'../images/images2/smile.avif' type('image/avif'),
+				'../images/images2/smile.webp' type('image/webp'),
+				'../images/images2/smile.png'
+			);
 		}
 
 		&--dolar {
-			background: url('../images/dollar.png') 0 / contain no-repeat;
+			background-image: url('../images/dollar.png');
+			background-image: image-set(
+				'../images/dollar.avif' type('image/avif'),
+				'../images/dollar.webp' type('image/webp'),
+				'../images/dollar.png'
+			);
 		}
 	}
 }
