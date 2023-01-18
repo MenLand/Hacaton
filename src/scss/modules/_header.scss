@@ -21,7 +21,7 @@
 		height: 370px;
 
 		background: #3d2abf;
-		filter: blur(150px);
+		filter: blur(79px);
 
 		.menu--opened & {
 			@include media-down(md) {
@@ -48,7 +48,7 @@
 				#153dea 224.87deg,
 				#bc1cd7 360deg
 			);
-			filter: blur(110px);
+			filter: blur(79px);
 		}
 	}
 
