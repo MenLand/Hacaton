@@ -29,6 +29,10 @@
 				#7362df 360deg
 			);
 			filter: blur(79px);
+
+			@at-root .safari & {
+				filter: blur(60px);
+			}
 		}
 	}
 }
