@@ -3,8 +3,9 @@ const { dest, src } = require('gulp');
 const GulpZip = require('gulp-zip');
 const { paths } = require('./paths');
 
-exports.zip = zip = () =>
-	src(`${paths.buildFolder}/**/*.*`, {})
-		.pipe(del.sync([`${paths.buildFolder}/*.zip`]))
+exports.zip = zip = () => {
+	del.sync(`${paths.buildFolder}/*.zip`);
+	return src(`${paths.buildFolder}/**/*.*`, {})
 		.pipe(GulpZip(`${paths.rootFolder}.zip`))
-		.pipe(dest(paths.buildFolder));
+		.pipe(dest('./'));
+};

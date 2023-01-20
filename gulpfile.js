@@ -1,4 +1,6 @@
 const { task, series, parallel, watch } = require('gulp');
+const browserSync = require('browser-sync');
+const { ftp } = require('./tasks/ftp');
 const { htmlInclude } = require('./tasks/html');
 const { clean } = require('./tasks/clean');
 const { style } = require('./tasks/style');
@@ -10,9 +12,7 @@ const { avifImage } = require('./tasks/avifImage');
 const { javascript } = require('./tasks/javascript');
 const { font } = require('./tasks/font');
 const { paths } = require('./tasks/paths');
-const fs = require('fs');
-
-const browserSync = require('browser-sync');
+// const fs = require('fs');
 
 const watcher = () => {
 	browserSync.init({
@@ -46,6 +46,32 @@ const watcher = () => {
 	watch(`${paths.srcFolder}/js/**/*.js`, javascript);
 };
 
+const build = series(
+	clean,
+	font,
+	htmlInclude,
+	style,
+	javascript,
+	image,
+	wepbImage,
+	avifImage,
+	svgSprite
+);
+
+task('build', build);
+task('zip', series(build, zip));
+task('style', series(clean, style));
+task('script', series(clean, javascript));
+task('font', series(clean, font));
+task('image', series(clean, image));
+task('webp', series(clean, wepbImage));
+task('svg', series(clean, svgSprite));
+task('clean', clean);
+task('html', series(htmlInclude, style));
+task('ftp', ftp);
+
+task('deploy', series(clean, build, ftp));
+
 exports.default = series(
 	clean,
 	parallel(
@@ -60,25 +86,3 @@ exports.default = series(
 	),
 	watcher
 );
-
-exports.build = series(
-	clean,
-	font,
-	htmlInclude,
-	style,
-	javascript,
-	image,
-	wepbImage,
-	avifImage,
-	svgSprite
-);
-
-task('zip', zip);
-task('style', series(clean, style));
-task('script', series(clean, javascript));
-task('font', series(clean, font));
-task('image', series(clean, image));
-task('webp', series(clean, wepbImage));
-task('svg', series(clean, svgSprite));
-task('clean', clean);
-task('html', series(htmlInclude, style));

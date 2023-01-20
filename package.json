@@ -4,7 +4,9 @@
 	"description": "",
 	"main": "gulpfile.js",
 	"scripts": {
+		"zip": "gulp zip --production",
 		"dev": "gulp",
+		"deploy": "gulp deploy --production",
 		"build": "gulp build --production",
 		"html": "node-w3c-validator -f lint -evH -i build/**/*.html",
 		"clean": "gulp clean"
@@ -31,7 +33,7 @@
 		"babel-loader": "^8.2.3",
 		"browser-sync": "^2.27.11",
 		"cssnano": "^5.1.14",
-		"del": "^6.0.0",
+		"del": "^6.1.1",
 		"doiuse": "^4.4.1",
 		"editorconfig-checker": "^4.0.1",
 		"gulp": "^4.0.2",
@@ -62,8 +64,10 @@
 		"gulp-svgmin": "^4.1.0",
 		"gulp-ttf2woff2": "^4.0.1",
 		"gulp-typograf": "^4.0.3",
+		"gulp-util": "^3.0.8",
 		"gulp-webp": "^4.0.1",
 		"gulp-zip": "^5.1.0",
+		"imagemin-pngquant": "^9.0.2",
 		"node-w3c-validator": "^2.0.1",
 		"postcss": "^8.4.21",
 		"postcss-scss": "^4.0.5",
@@ -75,6 +79,7 @@
 		"stylelint-config-standard-scss": "^3.0.0",
 		"stylelint-order": "^5.0.0",
 		"typograf": "^6.14.1",
+		"vinyl-ftp": "^0.6.1",
 		"webpack": "^5.75.0",
 		"webpack-stream": "^7.0.0"
 	},

@@ -34,12 +34,11 @@ $cards-gap: 30px;
 				#841cd7 345deg,
 				#7362df 360deg
 			);
+			filter: blur(70.5px);
 
-			// filter: blur(70.5px);
-
-			// @at-root .safari & {
-			// 	filter: blur(50px);
-			// }
+			@at-root .safari & {
+				filter: blur(50px);
+			}
 		}
 	}
 
