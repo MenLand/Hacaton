@@ -1,7 +1,1 @@
-<svg width="271" height="45" viewBox="0 0 271 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M270 30L258 42H270V30Z" fill="white" stroke="white"/>
-<path d="M7 41H252.5" stroke="white"/>
-<path d="M230 4H270V23L252.5 41" stroke="white"/>
-<circle cx="4" cy="41" r="3.5" stroke="white"/>
-<circle cx="226" cy="4" r="4" fill="white"/>
-</svg>
+<svg width="271" height="45" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M270 30l-12 12h12V30z" fill="#fff" stroke="#fff"/><path d="M7 41h245.5M230 4h40v19l-17.5 18" stroke="#fff"/><circle cx="4" cy="41" r="3.5" stroke="#fff"/><circle cx="226" cy="4" r="4" fill="#fff"/></svg>

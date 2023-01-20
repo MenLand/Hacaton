@@ -1,6 +1,1 @@
-<svg width="149" height="22" viewBox="0 0 149 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M3 20H138L148 9.5V2H130.5" stroke="white"/>
-<circle cx="129" cy="2" r="2" fill="white"/>
-<circle cx="2" cy="20" r="1.5" stroke="white"/>
-<path d="M148 14L142 20L148 20L148 14Z" fill="white" stroke="white"/>
-</svg>
+<svg width="149" height="22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 20h135l10-10.5V2h-17.5" stroke="#fff"/><circle cx="129" cy="2" r="2" fill="#fff"/><circle cx="2" cy="20" r="1.5" stroke="#fff"/><path d="M148 14l-6 6h6v-6z" fill="#fff" stroke="#fff"/></svg>
