@@ -12,6 +12,7 @@ const { avifImage } = require('./tasks/avifImage');
 const { javascript } = require('./tasks/javascript');
 const { font } = require('./tasks/font');
 const { paths } = require('./tasks/paths');
+const { resource } = require('./tasks/resource');
 // const fs = require('fs');
 
 const watcher = () => {
@@ -38,17 +39,20 @@ const watcher = () => {
 	});
 
 	watch(`${paths.srcFolder}/scss/**/*.scss`, style);
+	watch(`${paths.srcFolder}/scss/**/*.scss`, style);
 	watch(`${paths.srcFolder}/**/*.html`, htmlInclude);
-	watch(`${paths.srcFolder}/images/**/**.{jpg,jpeg,png,svg}`, image);
+	watch(`${paths.srcFolder}/images/**/**.{jpg,jpeg,png,svg,webp}`, image);
 	watch(`${paths.srcFolder}/images/**/**.{jpg,jpeg,png}`, wepbImage);
 	watch(`${paths.srcFolder}/images/**/**.{jpg,jpeg,png}`, avifImage);
 	watch(`${paths.srcFolder}/images/svg/**/*.svg`, svgSprite);
 	watch(`${paths.srcFolder}/js/**/*.js`, javascript);
+	watch(`${paths.srcFolder}/resources/**`, resource);
 };
 
 const build = series(
 	clean,
 	font,
+	resource,
 	htmlInclude,
 	style,
 	javascript,
@@ -75,6 +79,7 @@ task('deploy', series(clean, build, ftp));
 exports.default = series(
 	clean,
 	parallel(
+		resource,
 		font,
 		htmlInclude,
 		style,

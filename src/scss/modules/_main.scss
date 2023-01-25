@@ -284,10 +284,42 @@
 
 	&::after,
 	&::before {
+		@include media-down(md) {
+			width: 202px;
+			height: 222px;
+		}
 		pointer-events: none;
 		content: '';
 
 		position: absolute;
+		z-index: -1;
+		top: 0;
+
+		width: 404px;
+		height: 444px;
+
+		filter: blur(41px);
+		border-color: transparent;
+		border-style: solid;
+		border-radius: 100%;
+	}
+
+	&::before {
+		right: 0;
+
+		background-image: radial-gradient(
+			rgb(26 189 214 / 100%) 19%,
+			rgb(73 26 214 / 100%) 98%
+		);
+	}
+
+	&::after {
+		left: 0;
+
+		background-image: radial-gradient(
+			rgb(186 26 214 / 100%) 19%,
+			rgb(73 26 214 / 100%) 98%
+		);
 	}
 
 	&__image {

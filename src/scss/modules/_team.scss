@@ -1,4 +1,40 @@
 .team {
+	.decorative-elem {
+
+		@include media-down(md) {
+			width: 150px;
+			height: 150px;
+		}
+		position: absolute;
+		z-index: -1;
+		top: 50%;
+		left: 50%;
+
+		width: 275px;
+		height: 276px;
+
+		filter: blur(50px);
+		border-radius: 50%;
+
+		&--1 {
+			transform: translate(-50%, calc(-50% + 50px));
+
+			background-color: #2b00ff;
+		}
+
+		&--2 {
+			transform: translate(calc(-50% + 70px), -50%);
+
+			background-color: #ae00ff;
+		}
+
+		&--3 {
+			transform: translate(calc(-50% - 70px), -50%);
+
+			background-color: #f0f;
+		}
+	}
+
 	&__container {
 		@include media-down(xl) {
 			transform: scale(var(--zoom-factor, 1));

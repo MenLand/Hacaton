@@ -7,7 +7,7 @@ const size = require('gulp-size');
 const imageminPngquant = require('imagemin-pngquant');
 
 exports.image = image = () =>
-	src([`${paths.srcFolder}/images/**/**.{jpg,jpeg,png,svg}`])
+	src([`${paths.srcFolder}/images/**/**.{jpg,jpeg,png,svg,webp}`])
 		.pipe(gulpIf(isProd(), size({ title: 'IMAGES: Before compression' })))
 		.pipe(
 			gulpIf(

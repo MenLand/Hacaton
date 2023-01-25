@@ -29,7 +29,20 @@
 				</button>
 			</div>
 			<div class="main__right main-right">
-				<div class="main-right__image"></div>
+				<model-viewer
+					shadow-intensity="0"
+					disable-zoom
+					class="object-model"
+					camera-controls
+					alt="Cube"
+					auto-rotate
+					min-camera-orbit="-42deg 59deg auto"
+					max-camera-orbit="32deg 101deg auto"
+					disable-pan
+					src="resources/cube.glb"
+					interaction-prompt="none"
+					auto-rotate-delay="0"
+					poster="images/main/poster.webp"></model-viewer>
 			</div>
 		</div>
 	</div>
